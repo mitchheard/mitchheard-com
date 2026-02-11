@@ -1,0 +1,9 @@
+[
+  {
+    "id": "mitchheard-com",
+    "title": "mitchheard.com",
+    "description": "This site — personal site with public pages and a private dashboard.",
+    "url": "https://github.com/mitchheard/mitchheard-com",
+    "tags": ["Next.js", "TypeScript"]
+  }
+]

@@ -1,4 +1,7 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Personal site for [mitchheard.com](https://github.com/mitchheard/mitchheard-com): public front (about, articles, projects, photography) and a **private dashboard** at `/dashboard` for quick links and notes — suitable as a browser homepage or new-tab page.
+
+- **Layout:** Left sidebar nav (early-2000s style), full-width content on the right; responsive with a mobile hamburger menu.
+- **Content:** Edit JSON/TS in `src/data/` — no database. See [CONTENT.md](./CONTENT.md) for the content guide ("light CRM").
 
 ## Getting Started
 

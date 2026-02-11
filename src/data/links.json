@@ -1,0 +1,9 @@
+{
+  "quickLinks": [
+    { "label": "GitHub", "url": "https://github.com/mitchheard", "category": "Code" },
+    { "label": "This repo", "url": "https://github.com/mitchheard/mitchheard-com", "category": "Code" },
+    { "label": "Gmail", "url": "https://mail.google.com", "category": "Personal" },
+    { "label": "Calendar", "url": "https://calendar.google.com", "category": "Personal" }
+  ],
+  "notes": "Use this dashboard as your Chrome homepage. Add or edit links in src/data/links.json."
+}

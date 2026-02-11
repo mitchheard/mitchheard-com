@@ -1,65 +1,70 @@
-import Image from "next/image";
+import { site } from "@/data/site";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <article className="space-y-0">
+      {/* Hero: punches harder — tighter line-height, larger, warm accent dot as brand signature */}
+      <header>
+        <h1 className="flex items-baseline gap-3 font-serif text-5xl font-bold leading-tight tracking-tight text-[var(--foreground)] md:text-6xl md:leading-tight md:tracking-tighter">
+          <span>{site.name}</span>
+          <span
+            className="h-2 w-2 shrink-0 rounded-full bg-[var(--accent)] opacity-90"
+            aria-hidden
+          />
+        </h1>
+        <p className="mt-8 max-w-[38rem] font-serif text-xl font-medium leading-tight tracking-tight text-[var(--foreground)] md:text-2xl md:leading-tight">
+          Turning complex systems into clear, scalable product experiences.
+        </p>
+        <p className="mt-6 max-w-[30rem] font-sans text-[var(--muted-soft)] font-normal leading-relaxed">
+          Product and strategy leader across the startup lifecycle — specializing in multi-party
+          platforms, integration-heavy systems, and scalable execution.
+        </p>
+      </header>
+
+      <hr className="my-14" aria-hidden />
+
+      {/* Two-column: philosophy left, Currently card right — depth and structure */}
+      <section className="grid gap-10 md:grid-cols-[1fr,minmax(0,320px)] md:gap-12">
+        <div className="min-w-0">
+          <p className="font-sans text-[var(--muted)] leading-relaxed">
+            I&apos;m drawn to the hard problems that sit between teams, companies, and users. My work
+            centers on connecting systems, reducing friction, and building software that works in the
+            real world.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {site.currentFocus.length > 0 && (
+          <div
+            className="min-w-0 rounded-xl border p-6 md:p-8"
+            style={{
+              backgroundColor: "var(--card-bg)",
+              borderColor: "var(--card-border)",
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <h2 className="font-sans text-xs font-medium uppercase tracking-wider text-[var(--muted-soft)]">
+              Currently
+            </h2>
+            <ul className="mt-5 space-y-4">
+              {site.currentFocus.map((item) => (
+                <li
+                  key={item}
+                  className="font-sans text-[var(--muted)] leading-relaxed"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </section>
+
+      <footer className="mt-20 border-t border-[var(--border)] pt-8 opacity-80">
+        <p className="font-sans text-sm text-[var(--muted-soft)]">
+          {site.location}
+          <span className="mx-1.5">·</span>
+          {site.footerLine}
+        </p>
+      </footer>
+    </article>
   );
 }
