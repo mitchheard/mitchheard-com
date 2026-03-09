@@ -137,8 +137,11 @@ export function TopNav() {
           aria-modal="true"
           aria-label="Mobile navigation"
         >
-          {/* Overlay top bar — close only; brand is in main nav */}
-          <div className="flex flex-shrink-0 items-center justify-end px-6 py-4">
+          {/* Overlay top bar — brand left, close right */}
+          <div className="flex flex-shrink-0 items-center justify-between px-6 py-4">
+            <span className="font-sans text-sm font-semibold" style={{ color: "#c9a55a" }}>
+              {site.name}
+            </span>
             <button
               onClick={() => setMenuOpen(false)}
               aria-label="Close menu"
