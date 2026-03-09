@@ -2,6 +2,7 @@
 
 /* Deep navy + high-contrast off-white + warm gold accent — product-led, sharp, structured */
 :root {
+  color-scheme: dark;
   --background: #111826;
   --content-bg: #151d2e;
   --foreground: #f3f1ed;
@@ -35,27 +36,6 @@
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-source-serif);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #f3f1ed;
-    --content-bg: #faf9f6;
-    --foreground: #111826;
-    --foreground-hero: #111826;
-    --foreground-hero-line: #0d1220;
-    --nav-text: #4a5264;
-    --charcoal: #1e293b;
-    --muted: #475569;
-    --muted-soft: #64748b;
-    --accent: #9a7b4f;
-    --accent-hover: #8b6d42;
-    --border: #e2e8f0;
-    --sidebar-bg: #ebe8e3;
-    --sidebar-border: #e2e8f0;
-    --card-bg: rgba(226, 232, 240, 0.78);
-    --card-border: rgba(15, 22, 35, 0.12);
-  }
 }
 
 body {
@@ -236,24 +216,6 @@ a:hover {
 .project-badge.badge-concept::before {
   background: #788caa;
 }
-@media (prefers-color-scheme: light) {
-  .badge-live {
-    background: rgba(34, 197, 94, 0.12);
-    color: #16a34a;
-    border-color: rgba(34, 197, 94, 0.3);
-  }
-  .badge-coming {
-    background: rgba(234, 179, 8, 0.12);
-    color: #ca8a04;
-    border-color: rgba(234, 179, 8, 0.3);
-  }
-  .badge-concept {
-    background: rgba(100, 116, 139, 0.12);
-    color: #475569;
-    border-color: rgba(100, 116, 139, 0.25);
-  }
-}
-
 /* Location dot pulse (home page) */
 @keyframes location-pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
