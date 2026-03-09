@@ -4,9 +4,16 @@ import articlesData from "@/data/articles.json";
 
 type Article = { id: string; title: string; date: string; excerpt: string };
 
+const articles = articlesData as Article[];
+
+export function generateStaticParams() {
+  // With output: 'export', we must return at least one param when the list is empty.
+  const params = articles.map((a) => ({ id: a.id }));
+  return params.length > 0 ? params : [{ id: "__placeholder" }];
+}
+
 export default async function ArticlePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const articles = articlesData as Article[];
   const article = articles.find((a) => a.id === id);
   if (!article) notFound();
 
