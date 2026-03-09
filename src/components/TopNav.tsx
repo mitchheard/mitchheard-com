@@ -68,13 +68,13 @@ export function TopNav() {
   return (
     <header className="border-b border-[var(--border)] border-opacity-60">
       <nav
-        className="mx-auto flex max-w-[45rem] items-center justify-between px-6 py-4 md:px-10 md:py-5"
+        className="mx-auto flex max-w-[45rem] flex-nowrap items-center justify-between px-6 py-4 md:px-10 md:py-5"
         aria-label="Main"
       >
         {/* Site name — warm gold per reference */}
         <Link
           href="/"
-          className="font-sans text-sm font-semibold no-underline transition-colors hover:opacity-90"
+          className="shrink-0 whitespace-nowrap font-sans text-sm font-semibold no-underline transition-colors hover:opacity-90"
           style={{ color: '#c9a55a' }}
         >
           {site.name}
@@ -138,11 +138,11 @@ export function TopNav() {
           aria-label="Mobile navigation"
         >
           {/* Overlay top bar */}
-          <div className="flex items-center justify-between px-6 py-4">
+          <div className="flex flex-nowrap items-center justify-between px-6 py-4">
             <Link
               href="/"
               onClick={() => setMenuOpen(false)}
-              className="font-sans text-sm font-semibold no-underline"
+              className="shrink-0 whitespace-nowrap font-sans text-sm font-semibold no-underline"
               style={{ color: '#c9a55a' }}
             >
               {site.name}
