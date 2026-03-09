@@ -9,7 +9,7 @@ export const site = {
   currentFocus: [
     "CPO at Newzip",
     "Scaling B2B2C platform toward Series A",
-    "Building internal AI tooling",
+    "Rethinking how small teams build with AI",
     "Exploring why the engineer-to-PM shift matters more now than ever",
   ],
 } as const;
