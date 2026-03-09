@@ -3,7 +3,7 @@ import { site } from "@/data/site";
 
 /* Building grid — order matches Projects page: WanderPlace, Watch Me, Mail Zero, Planfinity */
 const buildingProjects: { title: string; description: string }[] = [
-  { title: "WanderPlace", description: "Save & discover places you want to visit" },
+  { title: "WanderPlace", description: "Save and share places worth visiting" },
   { title: "Watch Me", description: "Movie & TV tracker with AI recommendations" },
   { title: "Mail Zero", description: "Newsletter triage & inbox clarity" },
   { title: "Planfinity", description: "Gridfinity drawer planner for 3D printing" },
@@ -22,7 +22,7 @@ export default function HomePage() {
           {site.location}
         </div>
         <p className="mt-5 max-w-[32rem] font-sans text-[#7a9ab5] font-normal leading-relaxed md:mt-6">
-          I moved from engineering to product when I realized the bottleneck wasn&apos;t the code — it was knowing what to build. Since then I&apos;ve taken that into three industries, each time starting from scratch in a new domain and figuring it out. I gravitate toward the messy coordination problems, the ones where the product has to hold together multiple users with conflicting incentives. Outside work: 3D printing, Sony cameras, vinyl, bikes, and more half-started side projects than I&apos;d like to admit.
+          I moved from engineering to product when I realized the bottleneck wasn&apos;t the code — it was knowing what to build. Turns out that&apos;s true regardless of the industry. I gravitate toward the messy coordination problems, the ones where the product has to hold together multiple users with conflicting incentives. Outside work: 3D printing, Sony cameras, vinyl, bikes, and more half-started side projects than I&apos;d like to admit.
         </p>
       </header>
 

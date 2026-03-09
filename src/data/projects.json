@@ -2,7 +2,7 @@
   {
     "id": "wanderplace",
     "title": "WanderPlace",
-    "description": "Save and share places worth visiting.",
+    "description": "Save and share places worth visiting",
     "url": "#",
     "badges": [{ "stage": "Concept", "platform": "Mobile" }],
     "problem": "You save places constantly — restaurants to try in a city you're visiting, spots you loved and want to remember, recommendations from friends. But when you actually land somewhere, that list is useless: buried in Google Maps saves with no organization, no context, no way to share it.",
@@ -12,7 +12,7 @@
   {
     "id": "watch-me",
     "title": "Watch Me",
-    "description": "Track and discover what to watch next.",
+    "description": "Movie & TV tracker with AI recommendations",
     "url": "https://gowatchme.app",
     "badges": [{ "stage": "Live", "platform": "Web" }, { "stage": "Coming Soon", "platform": "iOS" }],
     "problem": "Streaming platforms optimize for their own catalogs, not your actual taste. Your real watchlist is scattered across texts, screenshots, and half-remembered conversations.",
@@ -22,7 +22,7 @@
   {
     "id": "mail-zero",
     "title": "Mail Zero",
-    "description": "Reach inbox zero and stay on top of what matters.",
+    "description": "Newsletter triage & inbox clarity",
     "url": "#",
     "badges": [{ "stage": "Live", "platform": "Web" }],
     "problem": "Most inbox advice focuses on processing faster. That's the wrong lever. The real problem is volume — too much arrives that never should have. Built this after noticing I was triaging the same newsletters and notifications on repeat, every day.",
@@ -32,7 +32,7 @@
   {
     "id": "planfinity",
     "title": "Planfinity",
-    "description": "Plan Gridfinity drawer layouts before you 3D print.",
+    "description": "Gridfinity drawer planner for 3D printing",
     "url": "https://planfinity.app",
     "badges": [{ "stage": "Live", "platform": "Web" }],
     "problem": "The bottleneck in Gridfinity organization isn't the printing — it's the planning. Figuring out what bins fit where requires juggling drawer dimensions, grid math, and bin sizes in your head, then hoping you got it right before committing hours to a print.",
