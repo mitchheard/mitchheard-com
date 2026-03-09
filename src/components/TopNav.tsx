@@ -132,21 +132,13 @@ export function TopNav() {
       {/* Mobile full-screen overlay menu */}
       {menuOpen && (
         <div
-          className="fixed inset-0 z-50 flex flex-col bg-[var(--background)] md:hidden"
+          className="mobile-menu-overlay fixed inset-0 z-50 flex flex-col bg-[var(--background)] md:hidden"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
         >
-          {/* Overlay top bar */}
-          <div className="flex flex-nowrap items-center justify-between px-6 py-4">
-            <Link
-              href="/"
-              onClick={() => setMenuOpen(false)}
-              className="shrink-0 whitespace-nowrap font-sans text-sm font-semibold no-underline"
-              style={{ color: '#c9a55a' }}
-            >
-              {site.name}
-            </Link>
+          {/* Overlay top bar — close only; brand is in main nav */}
+          <div className="flex flex-shrink-0 items-center justify-end px-6 py-4">
             <button
               onClick={() => setMenuOpen(false)}
               aria-label="Close menu"
@@ -156,15 +148,15 @@ export function TopNav() {
             </button>
           </div>
 
-          {/* Menu links */}
-          <div className="flex flex-1 flex-col justify-center px-8 pb-24">
-            <ul className="space-y-8">
+          {/* Menu links — compact block, not stretched */}
+          <div className="flex flex-col px-8 pb-24 pt-8">
+            <ul className="space-y-2">
               {publicNav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
-                    className={`block font-sans text-[1.7rem] font-semibold leading-none no-underline transition-colors hover:text-[var(--accent)] ${
+                    className={`block font-sans text-[26px] font-semibold leading-none no-underline transition-colors hover:text-[var(--accent)] tracking-[-0.01em] ${
                       pathname === item.href
                         ? "text-[var(--foreground)]"
                         : "text-[var(--muted)]"
@@ -177,16 +169,17 @@ export function TopNav() {
             </ul>
 
             {/* Divider */}
-            <div className="my-8 h-px w-12 bg-[var(--border)]" />
+            <div className="my-4 h-px w-12 bg-[var(--border)]" />
 
-            {/* Social links */}
-            <ul className="space-y-6">
+            {/* Social links — subordinate */}
+            <ul className="space-y-2 text-base" style={{ color: "#4a6580" }}>
               <li>
                 <a
                   href={site.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans text-lg font-medium text-[var(--muted)] no-underline transition-colors hover:text-[var(--accent)]"
+                  className="font-sans font-medium no-underline transition-colors hover:text-[var(--accent)]"
+                  style={{ color: "inherit" }}
                 >
                   LinkedIn
                 </a>
@@ -194,7 +187,8 @@ export function TopNav() {
               <li>
                 <a
                   href={`mailto:${site.email}`}
-                  className="font-sans text-lg font-medium text-[var(--muted)] no-underline transition-colors hover:text-[var(--accent)]"
+                  className="font-sans font-medium no-underline transition-colors hover:text-[var(--accent)]"
+                  style={{ color: "inherit" }}
                 >
                   Email
                 </a>
