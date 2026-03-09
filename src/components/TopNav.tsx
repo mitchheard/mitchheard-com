@@ -132,7 +132,7 @@ export function TopNav() {
       {/* Mobile full-screen overlay menu */}
       {menuOpen && (
         <div
-          className="mobile-menu-overlay fixed inset-0 z-50 flex flex-col bg-[var(--background)] md:hidden"
+          className="mobile-menu-overlay fixed inset-0 z-50 flex flex-col items-stretch bg-[var(--background)] md:hidden"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
@@ -148,8 +148,8 @@ export function TopNav() {
             </button>
           </div>
 
-          {/* Menu links — compact block, not stretched */}
-          <div className="flex flex-col px-8 pb-24 pt-8">
+          {/* Menu content — top-aligned, consistent padding below close button */}
+          <div className="flex flex-shrink-0 flex-col px-6 pt-2 pb-24">
             <ul className="space-y-2">
               {publicNav.map((item) => (
                 <li key={item.href}>
