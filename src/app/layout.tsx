@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Source_Serif_4, Geist_Mono } from "next/font/google";
-import { Sidebar } from "@/components/Sidebar";
+import { Inter, Geist_Mono } from "next/font/google";
+import { TopNav } from "@/components/TopNav";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const sourceSerif = Source_Serif_4({
-  variable: "--font-source-serif",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -31,10 +25,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${sourceSerif.variable} ${geistMono.variable} antialiased`}>
-        <Sidebar />
-        <main className="min-h-screen bg-[var(--content-bg)] pl-0 md:pl-56">
-          <div className="mx-auto max-w-[45rem] px-6 py-14 md:px-14 md:py-20">
+      <body className={`${inter.variable} ${geistMono.variable} antialiased`}>
+        <TopNav />
+        <main className="min-h-screen bg-[var(--content-bg)]">
+          <div className="mx-auto max-w-[45rem] px-5 pb-16 pt-5 md:px-10 md:pb-20 md:pt-16">
             {children}
           </div>
         </main>

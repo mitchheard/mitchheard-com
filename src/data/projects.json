@@ -1,9 +1,42 @@
 [
   {
-    "id": "mitchheard-com",
-    "title": "mitchheard.com",
-    "description": "This site — personal site with public pages and a private dashboard.",
-    "url": "https://github.com/mitchheard/mitchheard-com",
-    "tags": ["Next.js", "TypeScript"]
+    "id": "wanderplace",
+    "title": "WanderPlace",
+    "description": "Save and share places worth visiting.",
+    "url": "#",
+    "badges": [{ "stage": "Concept", "platform": "Mobile" }],
+    "problem": "You save places constantly — restaurants to try in a city you're visiting, spots you loved and want to remember, recommendations from friends. But when you actually land somewhere, that list is useless: buried in Google Maps saves with no organization, no context, no way to share it.",
+    "strategy": "Built on top of Google Maps saved places — no new input habit required. WanderPlace surfaces what's already there as something actually usable: organized by city, filterable by type, ready to pull up when you arrive somewhere or send to a friend who's heading there. Same data, two modes — traveler and local expert.",
+    "theBet": "The data already exists in everyone's Google Maps. The gap is a layer that makes it navigable when you're in the moment and presentable when someone else needs it. If enough people share their guides publicly, a third use case emerges: arriving somewhere new and finding a trusted local's curated map instead of relying on Yelp. That's the network effects upside — but the app is useful to a single user long before it gets there."
+  },
+  {
+    "id": "watch-me",
+    "title": "Watch Me",
+    "description": "Track and discover what to watch next.",
+    "url": "https://gowatchme.app",
+    "badges": [{ "stage": "Live", "platform": "Web" }, { "stage": "Coming Soon", "platform": "iOS" }],
+    "problem": "Streaming platforms optimize for their own catalogs, not your actual taste. Your real watchlist is scattered across texts, screenshots, and half-remembered conversations.",
+    "strategy": "Own the list first — one place you control, independent of any platform. Then let AI learn from what you've saved and watched to surface what's next. The recommendation comes from your history, not an engagement algorithm.",
+    "theBet": "People are frustrated enough with platform recommendations that they'll maintain a personal list if the experience is frictionless. The web app proves the concept; iOS is where the habit actually forms."
+  },
+  {
+    "id": "mail-zero",
+    "title": "Mail Zero",
+    "description": "Reach inbox zero and stay on top of what matters.",
+    "url": "#",
+    "badges": [{ "stage": "Live", "platform": "Web" }],
+    "problem": "Most inbox advice focuses on processing faster. That's the wrong lever. The real problem is volume — too much arrives that never should have. Built this after noticing I was triaging the same newsletters and notifications on repeat, every day.",
+    "strategy": "Attack inflow first: surface subscriptions worth cutting, batch the rest so you're not reacting all day. What remains gets a single focused triage pass. The mechanism is still being refined — the insight is right, the ideal execution is an open question.",
+    "theBet": "The people who need this most are the ones who've already tried every inbox app and are still overwhelmed. The unlock isn't a better interface — it's a workflow that starts before the email arrives."
+  },
+  {
+    "id": "planfinity",
+    "title": "Planfinity",
+    "description": "Plan Gridfinity drawer layouts before you 3D print.",
+    "url": "https://planfinity.app",
+    "badges": [{ "stage": "Live", "platform": "Web" }],
+    "problem": "The bottleneck in Gridfinity organization isn't the printing — it's the planning. Figuring out what bins fit where requires juggling drawer dimensions, grid math, and bin sizes in your head, then hoping you got it right before committing hours to a print.",
+    "strategy": "A single client-side tool: enter your drawer dimensions, place bin footprints on a live grid, get instant fit validation, and export a clean print list. No account, no backend — the whole thing runs in the browser because it doesn't need to be more than that.",
+    "theBet": "Zero-friction tools win in hobbyist communities. No signup means no barrier — someone can share a link and a new user is productive in 30 seconds. Simplicity is the feature."
   }
 ]

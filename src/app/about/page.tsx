@@ -7,8 +7,6 @@ export default function AboutPage() {
         </h1>
       </header>
 
-      <hr className="my-10" aria-hidden />
-
       <section className="max-w-2xl space-y-6">
         <p className="text-[var(--muted)] leading-relaxed">
           Edit <code className="rounded border border-[var(--border)] bg-[var(--background)] px-1.5 py-0.5 font-mono text-sm">src/app/about/page.tsx</code> or

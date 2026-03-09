@@ -7,8 +7,6 @@ export default function PhotographyPage() {
         </h1>
       </header>
 
-      <hr className="my-10" aria-hidden />
-
       <section className="max-w-2xl space-y-6">
         <p className="text-[var(--muted)] leading-relaxed">
           Add a gallery here: link to an external gallery (Flickr, Unsplash, etc.) or host images in{" "}

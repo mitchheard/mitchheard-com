@@ -23,8 +23,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
         <p className="mt-2 text-sm text-[var(--muted)]">{article.date}</p>
       </header>
 
-      <hr className="my-10" aria-hidden />
-
       <section className="max-w-2xl space-y-6">
         <p className="text-[var(--foreground)] leading-relaxed">{article.excerpt}</p>
         <p className="text-sm text-[var(--muted)]">

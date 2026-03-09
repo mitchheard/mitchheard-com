@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
-/* Deep slate + warm off-white + muted bronze — depth, warmth, authority, editorial */
+/* Deep navy + high-contrast off-white + warm gold accent — product-led, sharp, structured */
 :root {
   --background: #111826;
   --content-bg: #151d2e;
   --foreground: #f3f1ed;
+  --foreground-hero: #fcfbf8;
+  --foreground-hero-line: #fffefc;
+  --nav-text: #c4c2bc;
   --charcoal: #1e293b;
   --muted: #94a3b8;
   --muted-soft: #64748b;
@@ -14,9 +17,9 @@
   --divider: 1px solid var(--border);
   --sidebar-bg: #0f1623;
   --sidebar-border: #1e293b;
-  /* Currently card — designed module, subtle lift */
-  --card-bg: rgba(30, 41, 59, 0.55);
-  --card-border: rgba(148, 163, 184, 0.14);
+  /* Currently module — deliberate product module */
+  --card-bg: rgba(30, 41, 59, 0.72);
+  --card-border: rgba(148, 163, 184, 0.2);
   /* Spacing rhythm (8px base) */
   --space-unit: 0.5rem;
   --space-s: 1rem;
@@ -39,6 +42,9 @@
     --background: #f3f1ed;
     --content-bg: #faf9f6;
     --foreground: #111826;
+    --foreground-hero: #111826;
+    --foreground-hero-line: #0d1220;
+    --nav-text: #4a5264;
     --charcoal: #1e293b;
     --muted: #475569;
     --muted-soft: #64748b;
@@ -47,8 +53,8 @@
     --border: #e2e8f0;
     --sidebar-bg: #ebe8e3;
     --sidebar-border: #e2e8f0;
-    --card-bg: rgba(226, 232, 240, 0.65);
-    --card-border: rgba(15, 22, 35, 0.1);
+    --card-bg: rgba(226, 232, 240, 0.78);
+    --card-border: rgba(15, 22, 35, 0.12);
   }
 }
 
@@ -60,21 +66,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Serif for headings — depth and strategy */
+/* Headings: product-led sans (override with font-serif where needed) */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.25;
 }
 
-/* Subtle structural dividers — whitespace does the work */
-hr,
-.divider {
+hr {
   border: none;
   border-top: 1px solid var(--border);
   margin: 0;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 /* Links: accent, no clutter */
@@ -93,3 +97,271 @@ a:hover {
   padding: var(--space-m) var(--space-l);
   background: var(--background);
 }
+
+/* Projects page header — match reference */
+.project-page-title {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.project-page-sub {
+  font-size: 14px;
+  color: #4a6580;
+  margin-bottom: 36px;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Project card — reference surface, gold hover */
+.project-card {
+  background: #131f30;
+  border: 1px solid #1e2f45;
+  border-radius: 10px;
+  padding: 24px;
+  transition: border-color 0.2s;
+}
+
+.project-card:hover {
+  border-color: rgba(201, 165, 90, 0.3);
+}
+
+.project-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.project-card-title {
+  color: #c9a55a;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.project-card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.project-card-tagline {
+  font-size: 13px;
+  color: #7a9ab5;
+  margin-bottom: 16px;
+}
+
+/* Project row — grid 72px 1fr, gap 6px 12px */
+.project-row {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 6px 12px;
+  margin-bottom: 6px;
+}
+
+.project-row:last-child {
+  margin-bottom: 0;
+}
+
+.project-row-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #4a6580;
+  padding-top: 2px;
+}
+
+.project-row-val {
+  font-size: 13px;
+  color: #7a9ab5;
+  line-height: 1.55;
+}
+
+/* Project status badges: pill, 5px dot via ::before — match reference */
+.project-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.project-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.badge-live {
+  background: rgba(61, 220, 132, 0.1);
+  color: #3ddc84;
+  border: 1px solid rgba(61, 220, 132, 0.25);
+}
+
+.project-badge.badge-live::before {
+  background: #3ddc84;
+}
+
+.badge-coming {
+  background: rgba(255, 185, 50, 0.1);
+  color: #ffb932;
+  border: 1px solid rgba(255, 185, 50, 0.25);
+}
+
+.project-badge.badge-coming::before {
+  background: #ffb932;
+}
+
+.badge-concept {
+  background: rgba(120, 140, 170, 0.1);
+  color: #788caa;
+  border: 1px solid rgba(120, 140, 170, 0.25);
+}
+
+.project-badge.badge-concept::before {
+  background: #788caa;
+}
+@media (prefers-color-scheme: light) {
+  .badge-live {
+    background: rgba(34, 197, 94, 0.12);
+    color: #16a34a;
+    border-color: rgba(34, 197, 94, 0.3);
+  }
+  .badge-coming {
+    background: rgba(234, 179, 8, 0.12);
+    color: #ca8a04;
+    border-color: rgba(234, 179, 8, 0.3);
+  }
+  .badge-concept {
+    background: rgba(100, 116, 139, 0.12);
+    color: #475569;
+    border-color: rgba(100, 116, 139, 0.25);
+  }
+}
+
+/* Location dot pulse (home page) */
+@keyframes location-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+
+.home-location-dot {
+  width: 6px;
+  height: 6px;
+  background: #3ddc84;
+  border-radius: 50%;
+  animation: location-pulse 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* Home page section label (CURRENTLY, BUILDING, ELSEWHERE) */
+.home-section-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4a6580;
+  margin-bottom: 14px;
+}
+
+/* Currently card — reference surface/border */
+.currently-card {
+  background: #131f30;
+  border: 1px solid #1e2f45;
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+.currently-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.currently-item {
+  font-size: 14px;
+  color: #7a9ab5;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.currently-item::before {
+  content: '→';
+  color: #4a9eff;
+  font-size: 12px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* Building grid cards — same surface, gold hover */
+.preview-card {
+  display: block;
+  background: #131f30;
+  border: 1px solid #1e2f45;
+  border-radius: 8px;
+  padding: 16px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.preview-card:hover {
+  border-color: rgba(201, 165, 90, 0.4);
+  background: rgba(201, 165, 90, 0.05);
+}
+
+.preview-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--foreground);
+  margin-bottom: 4px;
+}
+
+.preview-desc {
+  font-size: 12px;
+  color: #4a6580;
+  line-height: 1.5;
+}
+
+/* Elsewhere link row */
+.link-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #1e2f45;
+  text-decoration: none;
+  color: #7a9ab5;
+  font-size: 14px;
+  transition: color 0.15s;
+}
+
+.link-item:last-child {
+  border-bottom: none;
+}
+
+.link-item:hover {
+  color: var(--foreground);
+}
+
+.link-item:hover .link-arrow {
+  color: #c9a55a;
+}
+
+.link-label { flex: 1; }
+.link-sub { font-size: 12px; color: #4a6580; }
+.link-arrow { font-size: 11px; color: #4a6580; transition: color 0.15s; }

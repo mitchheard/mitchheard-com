@@ -1,70 +1,76 @@
+import Link from "next/link";
 import { site } from "@/data/site";
+
+/* Building grid — order matches Projects page: WanderPlace, Watch Me, Mail Zero, Planfinity */
+const buildingProjects: { title: string; description: string }[] = [
+  { title: "WanderPlace", description: "Save & discover places you want to visit" },
+  { title: "Watch Me", description: "Movie & TV tracker with AI recommendations" },
+  { title: "Mail Zero", description: "Newsletter triage & inbox clarity" },
+  { title: "Planfinity", description: "Gridfinity drawer planner for 3D printing" },
+];
 
 export default function HomePage() {
   return (
     <article className="space-y-0">
-      {/* Hero: punches harder — tighter line-height, larger, warm accent dot as brand signature */}
+      {/* Hero */}
       <header>
-        <h1 className="flex items-baseline gap-3 font-serif text-5xl font-bold leading-tight tracking-tight text-[var(--foreground)] md:text-6xl md:leading-tight md:tracking-tighter">
-          <span>{site.name}</span>
-          <span
-            className="h-2 w-2 shrink-0 rounded-full bg-[var(--accent)] opacity-90"
-            aria-hidden
-          />
+        <h1 className="font-sans text-xl font-semibold leading-tight tracking-tight text-[var(--foreground-hero)] md:text-[2rem] md:leading-tight">
+          {site.name}
         </h1>
-        <p className="mt-8 max-w-[38rem] font-serif text-xl font-medium leading-tight tracking-tight text-[var(--foreground)] md:text-2xl md:leading-tight">
-          Turning complex systems into clear, scalable product experiences.
-        </p>
-        <p className="mt-6 max-w-[30rem] font-sans text-[var(--muted-soft)] font-normal leading-relaxed">
-          Product and strategy leader across the startup lifecycle — specializing in multi-party
-          platforms, integration-heavy systems, and scalable execution.
+        <div className="mt-1 flex items-center gap-1.5 font-mono text-xs text-[#4a6580]">
+          <span className="home-location-dot" aria-hidden />
+          {site.location}
+        </div>
+        <p className="mt-5 max-w-[32rem] font-sans text-[#7a9ab5] font-normal leading-relaxed md:mt-6">
+          I moved from engineering to product when I realized the bottleneck wasn&apos;t the code — it was knowing what to build. Since then I&apos;ve taken that into three industries, each time starting from scratch in a new domain and figuring it out. I gravitate toward the messy coordination problems, the ones where the product has to hold together multiple users with conflicting incentives. Outside work: 3D printing, Sony cameras, vinyl, bikes, and more half-started side projects than I&apos;d like to admit.
         </p>
       </header>
 
-      <hr className="my-14" aria-hidden />
-
-      {/* Two-column: philosophy left, Currently card right — depth and structure */}
-      <section className="grid gap-10 md:grid-cols-[1fr,minmax(0,320px)] md:gap-12">
-        <div className="min-w-0">
-          <p className="font-sans text-[var(--muted)] leading-relaxed">
-            I&apos;m drawn to the hard problems that sit between teams, companies, and users. My work
-            centers on connecting systems, reducing friction, and building software that works in the
-            real world.
-          </p>
-        </div>
-
-        {site.currentFocus.length > 0 && (
-          <div
-            className="min-w-0 rounded-xl border p-6 md:p-8"
-            style={{
-              backgroundColor: "var(--card-bg)",
-              borderColor: "var(--card-border)",
-            }}
-          >
-            <h2 className="font-sans text-xs font-medium uppercase tracking-wider text-[var(--muted-soft)]">
-              Currently
-            </h2>
-            <ul className="mt-5 space-y-4">
+      {/* Currently card */}
+      {site.currentFocus.length > 0 && (
+        <section className="mt-9 max-w-[37.5rem] md:mt-10">
+          <div className="currently-card">
+            <h2 className="home-section-label">Currently</h2>
+            <ul className="currently-items">
               {site.currentFocus.map((item) => (
-                <li
-                  key={item}
-                  className="font-sans text-[var(--muted)] leading-relaxed"
-                >
+                <li key={item} className="currently-item">
                   {item}
                 </li>
               ))}
             </ul>
           </div>
-        )}
+        </section>
+      )}
+
+      {/* Building — 2×2 grid linking to Projects */}
+      <section className="mt-9 max-w-[37.5rem] md:mt-10">
+        <h2 className="home-section-label">Building</h2>
+        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+          {buildingProjects.map((p) => (
+            <Link key={p.title} href="/projects" className="preview-card">
+              <div className="preview-name">{p.title}</div>
+              <div className="preview-desc">{p.description}</div>
+            </Link>
+          ))}
+        </div>
       </section>
 
-      <footer className="mt-20 border-t border-[var(--border)] pt-8 opacity-80">
-        <p className="font-sans text-sm text-[var(--muted-soft)]">
-          {site.location}
-          <span className="mx-1.5">·</span>
-          {site.footerLine}
-        </p>
-      </footer>
+      {/* Elsewhere — LinkedIn & Email */}
+      <section className="mt-9 max-w-[37.5rem] md:mt-10">
+        <h2 className="home-section-label">Elsewhere</h2>
+        <div className="flex flex-col">
+          <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="link-item">
+            <span className="link-label">LinkedIn</span>
+            <span className="link-sub">@mitchheard</span>
+            <span className="link-arrow">↗</span>
+          </a>
+          <a href={`mailto:${site.email}`} className="link-item">
+            <span className="link-label">Email</span>
+            <span className="link-sub">{site.email}</span>
+            <span className="link-arrow">↗</span>
+          </a>
+        </div>
+      </section>
     </article>
   );
 }

@@ -1,42 +1,91 @@
 import projectsData from "@/data/projects.json";
 
-type Project = { id: string; title: string; description: string; url: string; tags?: string[] };
+type Badge = { stage: string; platform: string };
+
+type Project = {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  badges?: Badge[];
+  problem?: string;
+  strategy?: string;
+  theBet?: string;
+};
+
+function badgeClass(stage: string): string {
+  const s = stage.toLowerCase();
+  if (s === "live") return "badge-live";
+  if (s === "coming soon") return "badge-coming";
+  return "badge-concept";
+}
 
 export default function ProjectsPage() {
   const projects = projectsData as Project[];
 
   return (
     <article>
-      <header className="mb-10">
-        <h1 className="text-3xl font-semibold tracking-tight text-[var(--foreground)] md:text-4xl">
-          Projects
-        </h1>
-      </header>
+      <h1 className="project-page-title text-[var(--foreground)]">
+        Projects
+      </h1>
+      <p className="project-page-sub max-w-[37.5rem]">
+        Side projects and things I&apos;ve built.
+      </p>
 
-      <hr className="my-10" aria-hidden />
-
-      <ul className="grid gap-6 sm:grid-cols-1">
+      <ul className="project-list">
         {projects.map((p) => (
           <li key={p.id}>
-            <a
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card block transition-colors hover:border-[var(--muted)]"
-            >
-              <h2 className="text-lg font-semibold text-[var(--foreground)]">{p.title}</h2>
-              <p className="mt-2 text-[var(--muted)] leading-relaxed">{p.description}</p>
-              {p.tags?.length ? (
-                <p className="mt-3 text-sm text-[var(--muted)]">{p.tags.join(" · ")}</p>
-              ) : null}
-            </a>
+            <div className="project-card block">
+              <div className="project-card-header">
+                <h2 className="project-card-title">
+                  {p.url && p.url !== "#" ? (
+                    <a href={p.url} target="_blank" rel="noopener noreferrer" className="no-underline hover:underline">
+                      {p.title}
+                    </a>
+                  ) : (
+                    p.title
+                  )}
+                </h2>
+                {p.badges?.length ? (
+                  <div className="project-card-tags">
+                    {p.badges.map((b, i) => (
+                      <span
+                        key={i}
+                        className={`project-badge ${badgeClass(b.stage)}`}
+                      >
+                        {b.stage} · {b.platform}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+              <p className="project-card-tagline">{p.description}</p>
+              {(p.problem ?? p.strategy ?? p.theBet) && (
+                <dl>
+                  {p.problem && (
+                    <div className="project-row">
+                      <dt className="project-row-label">Problem</dt>
+                      <dd className="project-row-val">{p.problem}</dd>
+                    </div>
+                  )}
+                  {p.strategy && (
+                    <div className="project-row">
+                      <dt className="project-row-label">Strategy</dt>
+                      <dd className="project-row-val">{p.strategy}</dd>
+                    </div>
+                  )}
+                  {p.theBet && (
+                    <div className="project-row">
+                      <dt className="project-row-label">The Bet</dt>
+                      <dd className="project-row-val">{p.theBet}</dd>
+                    </div>
+                  )}
+                </dl>
+              )}
+            </div>
           </li>
         ))}
       </ul>
-
-      <p className="mt-10 text-sm text-[var(--muted)]">
-        Edit <code className="rounded border border-[var(--border)] bg-[var(--background)] px-1.5 py-0.5 font-mono text-xs">src/data/projects.json</code> to add or update projects.
-      </p>
     </article>
   );
 }
