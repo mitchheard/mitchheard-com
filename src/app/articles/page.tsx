@@ -1,3 +1,15 @@
+import { ArticlesIndex } from "@/components/ArticlesIndex";
+import articlesData from "@/data/articles.json";
+
+type Article = {
+  id: string;
+  title: string;
+  date: string;
+  excerpt: string;
+};
+
+const articles = articlesData as Article[];
+
 export default function ArticlesPage() {
   return (
     <article>
@@ -10,9 +22,7 @@ export default function ArticlesPage() {
         </p>
       </header>
 
-      <p className="text-[var(--muted)] leading-relaxed">
-        Nothing published yet — first post coming soon.
-      </p>
+      <ArticlesIndex articles={articles} />
     </article>
   );
 }

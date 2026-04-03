@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { publicNav } from "@/data/nav";
 import { site } from "@/data/site";
+import { trackUmamiEvent } from "@/lib/umami-bootstrap";
 
 const iconClass = "h-3 w-3 text-[var(--nav-text)] transition-colors hover:text-[var(--accent)]";
 
@@ -103,6 +104,7 @@ export function TopNav() {
               rel="noopener noreferrer"
               className="inline-flex items-baseline text-[var(--nav-text)] transition-colors hover:text-[var(--accent)]"
               aria-label="LinkedIn"
+              onClick={() => trackUmamiEvent("linkedin_clicked")}
             >
               <LinkedInIcon className={iconClass} />
             </a>
@@ -113,6 +115,7 @@ export function TopNav() {
               href={`mailto:${site.email}`}
               className="inline-flex items-baseline text-[var(--nav-text)] transition-colors hover:text-[var(--accent)]"
               aria-label="Email"
+              onClick={() => trackUmamiEvent("email_clicked")}
             >
               <EmailIcon className={iconClass} />
             </a>
@@ -183,6 +186,7 @@ export function TopNav() {
                   rel="noopener noreferrer"
                   className="font-sans font-medium no-underline transition-colors hover:text-[var(--accent)]"
                   style={{ color: "inherit" }}
+                  onClick={() => trackUmamiEvent("linkedin_clicked")}
                 >
                   LinkedIn
                 </a>
@@ -192,6 +196,7 @@ export function TopNav() {
                   href={`mailto:${site.email}`}
                   className="font-sans font-medium no-underline transition-colors hover:text-[var(--accent)]"
                   style={{ color: "inherit" }}
+                  onClick={() => trackUmamiEvent("email_clicked")}
                 >
                   Email
                 </a>

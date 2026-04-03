@@ -1,3 +1,4 @@
+import { ProjectOutboundLink } from "@/components/ProjectOutboundLink";
 import projectsData from "@/data/projects.json";
 
 type Badge = { stage: string; platform: string };
@@ -39,9 +40,13 @@ export default function ProjectsPage() {
               <div className="project-card-header">
                 <h2 className="project-card-title">
                   {p.url && p.url !== "#" ? (
-                    <a href={p.url} target="_blank" rel="noopener noreferrer" className="no-underline hover:underline">
+                    <ProjectOutboundLink
+                      href={p.url}
+                      projectId={p.id}
+                      className="no-underline hover:underline"
+                    >
                       {p.title}
-                    </a>
+                    </ProjectOutboundLink>
                   ) : (
                     p.title
                   )}
