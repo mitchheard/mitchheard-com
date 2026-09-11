@@ -7,7 +7,7 @@ import { publicNav } from "@/data/nav";
 import { site } from "@/data/site";
 import { trackUmamiEvent } from "@/lib/umami-bootstrap";
 
-const iconClass = "h-3 w-3 text-[var(--nav-text)] transition-colors hover:text-[var(--accent)]";
+const iconClass = "h-3.5 w-3.5";
 
 function LinkedInIcon({ className }: { className?: string }) {
   return (
@@ -67,53 +67,41 @@ export function TopNav() {
   }, [menuOpen]);
 
   return (
-    <header className="border-b border-[var(--border)] border-opacity-60">
+    <header>
       <nav
-        className="mx-auto flex max-w-[45rem] flex-nowrap items-center justify-between px-6 py-4 md:px-10 md:py-5"
+        className="site-container flex items-baseline justify-between border-b border-[var(--ink)] pb-3.5 pt-8 md:pt-12"
         aria-label="Main"
       >
-        {/* Site name — warm gold per reference */}
-        <Link
-          href="/"
-          className="shrink-0 whitespace-nowrap font-sans text-sm font-semibold no-underline transition-colors hover:opacity-90"
-          style={{ color: '#c9a55a' }}
-        >
+        <Link href="/" className="nav-brand shrink-0 whitespace-nowrap">
           {site.name}
         </Link>
 
-        {/* Desktop nav — hidden on mobile */}
-        <ul className="hidden items-baseline gap-x-0.5 text-sm text-[var(--nav-text)] md:flex">
-          {publicNav.map((item, i) => (
-            <li key={item.href} className="flex items-baseline">
-              {i > 0 && <span className="px-0.5 text-[var(--muted-soft)]">&middot;</span>}
+        {/* Desktop nav */}
+        <ul className="hidden items-baseline gap-x-7 md:flex">
+          {publicNav.map((item) => (
+            <li key={item.href}>
               <Link
                 href={item.href}
-                className={`font-medium no-underline transition-colors hover:text-[var(--foreground)] ${
-                  pathname === item.href ? "text-[var(--foreground)]" : ""
-                }`}
+                className={`nav-link ${pathname === item.href ? "nav-link-active" : ""}`}
               >
                 {item.label}
               </Link>
             </li>
           ))}
-          <li className="flex items-baseline">
-            <span className="px-0.5 text-[var(--muted-soft)]">&middot;</span>
+          <li className="flex items-baseline gap-x-4 pl-1">
             <a
               href={site.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-baseline text-[var(--nav-text)] transition-colors hover:text-[var(--accent)]"
+              className="nav-icon inline-flex"
               aria-label="LinkedIn"
               onClick={() => trackUmamiEvent("linkedin_clicked")}
             >
               <LinkedInIcon className={iconClass} />
             </a>
-          </li>
-          <li className="flex items-baseline">
-            <span className="px-0.5 text-[var(--muted-soft)]">&middot;</span>
             <a
               href={`mailto:${site.email}`}
-              className="inline-flex items-baseline text-[var(--nav-text)] transition-colors hover:text-[var(--accent)]"
+              className="nav-icon inline-flex"
               aria-label="Email"
               onClick={() => trackUmamiEvent("email_clicked")}
             >
@@ -122,51 +110,39 @@ export function TopNav() {
           </li>
         </ul>
 
-        {/* Mobile hamburger button — hidden on desktop */}
+        {/* Mobile hamburger */}
         <button
-          className="flex items-center justify-center md:hidden"
+          className="flex items-center justify-center self-center md:hidden"
           onClick={() => setMenuOpen(true)}
           aria-label="Open menu"
         >
-          <HamburgerIcon className="h-5 w-5 text-[var(--muted)] transition-colors hover:text-[var(--foreground)]" />
+          <HamburgerIcon className="h-5 w-5 text-[var(--ink-3)] transition-colors hover:text-[var(--ink)]" />
         </button>
       </nav>
 
       {/* Mobile full-screen overlay menu */}
       {menuOpen && (
         <div
-          className="mobile-menu-overlay fixed inset-0 z-50 flex flex-col items-stretch bg-[var(--background)] md:hidden"
+          className="mobile-menu-overlay fixed inset-0 z-50 flex flex-col items-stretch bg-[var(--paper)] md:hidden"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
         >
-          {/* Overlay top bar — brand left, close right */}
-          <div className="flex flex-shrink-0 items-center justify-between px-6 py-4">
-            <span className="font-sans text-sm font-semibold" style={{ color: "#c9a55a" }}>
-              {site.name}
-            </span>
-            <button
-              onClick={() => setMenuOpen(false)}
-              aria-label="Close menu"
-              className="flex items-center justify-center"
-            >
-              <CloseIcon className="h-5 w-5 text-[var(--muted)] transition-colors hover:text-[var(--foreground)]" />
+          <div className="site-container flex flex-shrink-0 items-baseline justify-between border-b border-[var(--ink)] pb-3.5 pt-8">
+            <span className="nav-brand">{site.name}</span>
+            <button onClick={() => setMenuOpen(false)} aria-label="Close menu" className="flex items-center justify-center self-center">
+              <CloseIcon className="h-5 w-5 text-[var(--ink-3)] transition-colors hover:text-[var(--ink)]" />
             </button>
           </div>
 
-          {/* Menu content — top-aligned, consistent padding below close button */}
-          <div className="flex flex-shrink-0 flex-col px-6 pt-2 pb-24">
-            <ul className="space-y-2">
+          <div className="site-container flex flex-shrink-0 flex-col pb-24 pt-10">
+            <ul className="space-y-4">
               {publicNav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
-                    className={`block font-sans text-[26px] font-semibold leading-none no-underline transition-colors hover:text-[var(--accent)] tracking-[-0.01em] ${
-                      pathname === item.href
-                        ? "text-[var(--foreground)]"
-                        : "text-[var(--muted)]"
-                    }`}
+                    className={`mobile-nav-link block leading-none ${pathname === item.href ? "mobile-nav-link-active" : ""}`}
                   >
                     {item.label}
                   </Link>
@@ -174,31 +150,22 @@ export function TopNav() {
               ))}
             </ul>
 
-            {/* Divider */}
-            <div className="my-4 h-px w-12 bg-[var(--border)]" />
+            <div className="my-8 h-px w-12 bg-[var(--rule)]" />
 
-            {/* Social links — subordinate */}
-            <ul className="space-y-2 text-base" style={{ color: "#4a6580" }}>
+            <ul className="meta space-y-3">
               <li>
                 <a
                   href={site.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans font-medium no-underline transition-colors hover:text-[var(--accent)]"
-                  style={{ color: "inherit" }}
                   onClick={() => trackUmamiEvent("linkedin_clicked")}
                 >
                   LinkedIn
                 </a>
               </li>
               <li>
-                <a
-                  href={`mailto:${site.email}`}
-                  className="font-sans font-medium no-underline transition-colors hover:text-[var(--accent)]"
-                  style={{ color: "inherit" }}
-                  onClick={() => trackUmamiEvent("email_clicked")}
-                >
-                  Email
+                <a href={`mailto:${site.email}`} onClick={() => trackUmamiEvent("email_clicked")}>
+                  {site.email}
                 </a>
               </li>
             </ul>

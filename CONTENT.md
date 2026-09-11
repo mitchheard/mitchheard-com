@@ -4,10 +4,10 @@ All editable content lives in **`src/data/`**. No database required — edit the
 
 | What you want to change | File to edit |
 |------------------------|--------------|
-| Site name, tagline, headshot (`photo`), "Currently" list | `src/data/site.ts` |
+| Site name, tagline, portrait (`photo`, 4:5), "Now" list | `src/data/site.ts` |
 | Public nav links | `src/data/nav.ts` |
 | **Dashboard** quick links & notes | `src/data/links.json` |
-| Projects list (order = display order; `image` optional; stage `Retired` hides it from the home grid) | `src/data/projects.json` |
+| Work list (order = display order; `image` optional 16:10 screenshot; stage `Retired` moves it to the row under the cards) | `src/data/projects.json` |
 | Articles (empty = hidden from nav; re-add link in `nav.ts`) | `src/data/articles.json` |
 
 ## Dashboard as Chrome homepage

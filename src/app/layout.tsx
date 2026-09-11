@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import { Newsreader, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
 import { TopNav } from "@/components/TopNav";
 import { UmamiPageviewRouteListener } from "@/components/UmamiPageviewRouteListener";
@@ -9,14 +9,23 @@ import {
 } from "@/lib/umami-bootstrap";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
   subsets: ["latin"],
+  style: ["normal", "italic"],
+  weight: ["400", "500"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -38,11 +47,11 @@ export default function RootLayout({
           strategy="beforeInteractive"
         />
       </head>
-      <body className={`${inter.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable} antialiased`}>
         <UmamiPageviewRouteListener />
         <TopNav />
-        <main className="min-h-screen bg-[var(--content-bg)]">
-          <div className="mx-auto max-w-[45rem] px-5 pb-16 pt-5 md:px-10 md:pb-20 md:pt-16">
+        <main className="min-h-screen">
+          <div className="site-container pb-16 pt-10 md:pb-24 md:pt-[72px]">
             {children}
           </div>
         </main>
