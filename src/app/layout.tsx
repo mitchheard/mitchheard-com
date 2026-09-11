@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Mitch Heard",
-  description: "Personal site — articles, projects, photography.",
+  description: "Mitch Heard — CPO at Newzip, builder of small software bets under AvidX. Austin, TX.",
 };
 
 export default function RootLayout({

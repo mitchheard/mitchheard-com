@@ -1,42 +1,46 @@
 [
   {
-    "id": "wanderplace",
-    "title": "WanderPlace",
-    "description": "Save and share places worth visiting",
-    "url": "#",
-    "badges": [{ "stage": "Concept", "platform": "Mobile" }],
-    "problem": "You save places constantly — restaurants to try in a city you're visiting, spots you loved and want to remember, recommendations from friends. But when you actually land somewhere, that list is useless: buried in Google Maps saves with no organization, no context, no way to share it.",
-    "strategy": "Built on top of Google Maps saved places — no new input habit required. WanderPlace surfaces what's already there as something actually usable: organized by city, filterable by type, ready to pull up when you arrive somewhere or send to a friend who's heading there. Same data, two modes — traveler and local expert.",
-    "theBet": "The data already exists in everyone's Google Maps. The gap is a layer that makes it navigable when you're in the moment and presentable when someone else needs it. If enough people share their guides publicly, a third use case emerges: arriving somewhere new and finding a trusted local's curated map instead of relying on Yelp. That's the network effects upside — but the app is useful to a single user long before it gets there."
+    "id": "lellow",
+    "title": "Lellow",
+    "description": "Offline, ad-free creative play and games for kids",
+    "url": "https://lellow.app",
+    "image": "",
+    "badges": [{ "stage": "Live", "platform": "iPad / Web" }],
+    "problem": "Kids' apps are either ad-funded attention traps or subscription walls, and almost none of them work on a plane. I wanted something my own kids could open on an iPad with no account, no ads, no network, and no upsell.",
+    "strategy": "A progressive web app that installs to the home screen and runs fully offline: coloring pages, drawing, spot-the-difference, word hunts, and a growing set of small games. Local-first storage so nothing depends on a server. Parents log in only to sync profiles across devices; kids never touch credentials.",
+    "theBet": "Built from zero in one evening as an experiment in idea-to-production speed, then kept because my kids actually use it. The bet is that a calm, offline, ad-free option is rare enough that parents will share it with other parents. First family testers are on it now."
   },
   {
     "id": "watch-me",
     "title": "Watch Me",
-    "description": "Movie & TV tracker with AI recommendations",
+    "description": "A movie and TV watchlist that picks what you watch tonight",
     "url": "https://gowatchme.app",
-    "badges": [{ "stage": "Live", "platform": "Web" }, { "stage": "Coming Soon", "platform": "iOS" }],
-    "problem": "Streaming platforms optimize for their own catalogs, not your actual taste. Your real watchlist is scattered across texts, screenshots, and half-remembered conversations.",
-    "strategy": "Own the list first — one place you control, independent of any platform. Then let AI learn from what you've saved and watched to surface what's next. The recommendation comes from your history, not an engagement algorithm.",
-    "theBet": "People are frustrated enough with platform recommendations that they'll maintain a personal list if the experience is frictionless. The web app proves the concept; iOS is where the habit actually forms."
-  },
-  {
-    "id": "mail-zero",
-    "title": "Mail Zero",
-    "description": "Newsletter triage & inbox clarity",
-    "url": "#",
-    "badges": [{ "stage": "Live", "platform": "Web" }],
-    "problem": "Most inbox advice focuses on processing faster. That's the wrong lever. The real problem is volume — too much arrives that never should have. Built this after noticing I was triaging the same newsletters and notifications on repeat, every day.",
-    "strategy": "Attack inflow first: surface subscriptions worth cutting, batch the rest so you're not reacting all day. What remains gets a single focused triage pass. The mechanism is still being refined — the insight is right, the ideal execution is an open question.",
-    "theBet": "The people who need this most are the ones who've already tried every inbox app and are still overwhelmed. The unlock isn't a better interface — it's a workflow that starts before the email arrives."
+    "image": "",
+    "badges": [{ "stage": "Live", "platform": "Web / PWA" }],
+    "problem": "Streaming platforms optimize for their own catalogs, not your actual taste. Your real watchlist is scattered across texts, screenshots, and half-remembered conversations, and the nightly \"what should we watch\" still takes twenty minutes.",
+    "strategy": "Own the list first: one place you control, independent of any platform. Then make the app open on a decision, not a library: one pick for tonight, drawn from what you've saved and what you've already watched. The recommendation comes from your history, not an engagement algorithm. Free gets the daily pick; Pro gets to tune it.",
+    "theBet": "People are frustrated enough with platform recommendations that they'll maintain a personal list if the payoff is a faster decision. This is the first AvidX product built to charge money, and the one I'm concentrating on."
   },
   {
     "id": "planfinity",
     "title": "Planfinity",
     "description": "Gridfinity drawer planner for 3D printing",
     "url": "https://planfinity.app",
+    "image": "",
     "badges": [{ "stage": "Live", "platform": "Web" }],
-    "problem": "The bottleneck in Gridfinity organization isn't the printing — it's the planning. Figuring out what bins fit where requires juggling drawer dimensions, grid math, and bin sizes in your head, then hoping you got it right before committing hours to a print.",
-    "strategy": "A single client-side tool: enter your drawer dimensions, place bin footprints on a live grid, get instant fit validation, and export a clean print list. No account, no backend — the whole thing runs in the browser because it doesn't need to be more than that.",
-    "theBet": "Zero-friction tools win in hobbyist communities. No signup means no barrier — someone can share a link and a new user is productive in 30 seconds. Simplicity is the feature."
+    "problem": "The bottleneck in Gridfinity organization isn't the printing. It's the planning. Figuring out what bins fit where requires juggling drawer dimensions, grid math, and bin sizes in your head, then hoping you got it right before committing hours to a print.",
+    "strategy": "A single client-side tool: enter your drawer dimensions, place bin footprints on a live grid, get instant fit validation, and export a clean print list. No account, no backend. The whole thing runs in the browser because it doesn't need to be more than that.",
+    "theBet": "Zero-friction tools win in hobbyist communities. No signup means no barrier. Someone can share a link and a new user is productive in 30 seconds. Simplicity is the feature."
+  },
+  {
+    "id": "mail-zero",
+    "title": "Mail Zero",
+    "description": "Gmail inbox analyzer, retired",
+    "url": "#",
+    "image": "",
+    "badges": [{ "stage": "Retired", "platform": "Web" }],
+    "problem": "Most inbox advice focuses on processing faster. That's the wrong lever. The real problem is volume. Too much arrives that never should have. Mail Zero took a Gmail export and showed you exactly who was filling your inbox and what to cut.",
+    "strategy": "Upload a Google Takeout archive, get a full dashboard: health score, email debt, top senders, unsubscribe candidates. Privacy-first: nothing left your browser session that didn't need to.",
+    "theBet": "Shipped, worked, and then the ground moved. Once an LLM could plug directly into Gmail and triage an inbox interactively, an upload-a-dashboard product had no reason to exist. Wound down in August 2026. If it comes back, it comes back as an agent, not an app."
   }
 ]

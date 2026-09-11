@@ -1,6 +1,6 @@
-Personal site for [mitchheard.com](https://mitchheard.com): public front (about, articles, projects, photography) and a **private dashboard** at `/dashboard` for quick links and notes — suitable as a browser homepage or new-tab page.
+Personal site for [mitchheard.com](https://mitchheard.com): public front (home, projects; articles hidden until the first post) and a **private dashboard** at `/dashboard` for quick links and notes — suitable as a browser homepage or new-tab page.
 
-- **Layout:** Left sidebar nav (early-2000s style), full-width content on the right; responsive with a mobile hamburger menu.
+- **Layout:** Top nav, single centered column; responsive with a mobile hamburger menu.
 - **Content:** Edit JSON/TS in `src/data/` — no database. See [CONTENT.md](./CONTENT.md) for the content guide ("light CRM").
 - **Build:** Static export (`output: 'export'`). The site is pre-rendered to the `out/` directory; no Node server at runtime.
 

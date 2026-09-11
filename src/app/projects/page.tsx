@@ -8,6 +8,7 @@ type Project = {
   title: string;
   description: string;
   url: string;
+  image?: string;
   badges?: Badge[];
   problem?: string;
   strategy?: string;
@@ -18,6 +19,7 @@ function badgeClass(stage: string): string {
   const s = stage.toLowerCase();
   if (s === "live") return "badge-live";
   if (s === "coming soon") return "badge-coming";
+  if (s === "retired") return "badge-retired";
   return "badge-concept";
 }
 
@@ -30,13 +32,13 @@ export default function ProjectsPage() {
         Projects
       </h1>
       <p className="project-page-sub max-w-[37.5rem]">
-        Side projects and things I&apos;ve built.
+        Small bets under AvidX. Live ones first; the retired one stays because the reason it died is the useful part.
       </p>
 
       <ul className="project-list">
         {projects.map((p) => (
-          <li key={p.id}>
-            <div className="project-card block">
+          <li key={p.id} id={p.id} className="scroll-mt-24">
+            <div className={`project-card block${p.badges?.some((b) => b.stage.toLowerCase() === "retired") ? " project-card-retired" : ""}`}>
               <div className="project-card-header">
                 <h2 className="project-card-title">
                   {p.url && p.url !== "#" ? (
@@ -65,6 +67,10 @@ export default function ProjectsPage() {
                 ) : null}
               </div>
               <p className="project-card-tagline">{p.description}</p>
+              {p.image ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={p.image} alt={`${p.title} screenshot`} className="project-shot" loading="lazy" />
+              ) : null}
               {(p.problem ?? p.strategy ?? p.theBet) && (
                 <dl>
                   {p.problem && (

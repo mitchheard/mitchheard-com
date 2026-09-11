@@ -216,6 +216,79 @@ a:hover {
 .project-badge.badge-concept::before {
   background: #788caa;
 }
+
+.badge-retired {
+  background: rgba(120, 140, 170, 0.06);
+  color: #5d6f88;
+  border: 1px solid rgba(120, 140, 170, 0.18);
+}
+
+.project-badge.badge-retired::before {
+  background: #5d6f88;
+}
+
+.project-card-retired {
+  opacity: 0.78;
+}
+
+.project-card-retired:hover {
+  opacity: 1;
+}
+
+/* Optional project screenshot (set "image" in projects.json) */
+.project-shot {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #1e2f45;
+  margin-bottom: 16px;
+}
+
+/* Hero: text + optional headshot (set site.photo) */
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.hero-text { min-width: 0; }
+
+.hero-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #1e2f45;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+@media (min-width: 768px) {
+  .hero-photo { width: 128px; height: 128px; }
+}
+
+.home-section-more {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: #4a6580;
+  margin-bottom: 14px;
+}
+
+.home-section-more:hover { color: var(--accent); text-decoration: none; }
+
+.preview-stage {
+  margin-left: 8px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: #5d6f88;
+}
+
+.preview-stage-live { color: #3ddc84; }
 /* Location dot pulse (home page) */
 @keyframes location-pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
