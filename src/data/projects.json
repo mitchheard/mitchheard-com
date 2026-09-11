@@ -11,9 +11,16 @@
         "platform": "iPad / Web"
       }
     ],
-    "problem": "Kids' apps are either ad-funded attention traps or subscription walls, and almost none of them work on a plane. I wanted something my own kids could open on an iPad with no account, no ads, no network, and no upsell.",
-    "strategy": "A progressive web app that installs to the home screen and runs fully offline: coloring pages, drawing, spot-the-difference, word hunts, and a growing set of small games. Local-first storage so nothing depends on a server. Parents log in only to sync profiles across devices; kids never touch credentials.",
-    "theBet": "Built from zero in one evening as an experiment in idea-to-production speed, then kept because my kids actually use it. The bet is that a calm, offline, ad-free option is rare enough that parents will share it with other parents. First family testers are on it now."
+    "stack": "Vite · React · TypeScript · IndexedDB · Supabase sync · Render",
+    "highlights": [
+      "Fully offline PWA, tested in airplane mode",
+      "64 coloring pages, freehand and tap-to-fill",
+      "Cloud backup; kids never see a login",
+      "No ads, no tracking, no in-app purchases"
+    ],
+    "problem": "Kids' apps are either ad-funded attention traps or subscription walls, and most of them stop working the moment the wifi does. I wanted something my own kids could open on an iPad in airplane mode: no account, no ads, no upsell, no network.",
+    "strategy": "A progressive web app that installs to the home screen and runs entirely offline. Nine activities: freehand coloring and tap-to-fill across 64 line-art pictures, a saved-art gallery, themed word hunts, a math game built on drag-to-feed, a platformer, a plane-dodger, a memory match. Every drawing is a keepsake, so a parent can sign in once and the whole family's art and scores sync across devices. The cast is named after my kids' own words for things: Lellow, Bumbo, Confetti Monster, Aircoo, Gordy.",
+    "theBet": "Built from zero in one evening as an experiment in how fast an idea can reach a real device, then kept because my kids actually use it. The bet is that a calm, offline, ad-free option with a PBS-grade ethos is rare enough that parents will pass it to other parents. Four families are testing it now."
   },
   {
     "id": "watch-me",
@@ -27,9 +34,16 @@
         "platform": "Web / PWA"
       }
     ],
-    "problem": "Streaming platforms optimize for their own catalogs, not your actual taste. Your real watchlist is scattered across texts, screenshots, and half-remembered conversations, and the nightly \"what should we watch\" still takes twenty minutes.",
-    "strategy": "Own the list first: one place you control, independent of any platform. Then make the app open on a decision, not a library: one pick for tonight, drawn from what you've saved and what you've already watched. The recommendation comes from your history, not an engagement algorithm. Free gets the daily pick; Pro gets to tune it.",
-    "theBet": "People are frustrated enough with platform recommendations that they'll maintain a personal list if the payoff is a faster decision. This is the first AvidX product built to charge money, and the one I'm concentrating on."
+    "stack": "Next.js · Prisma · Postgres · Supabase auth · Claude · Stripe · Resend · Render",
+    "highlights": [
+      "One AI pick a night, with the reason",
+      "TMDB-backed list for movies and TV",
+      "Pro tier on Stripe, mobile-first PWA",
+      "The first AvidX product, still shipping"
+    ],
+    "problem": "Streaming platforms recommend what's good for their catalog, not your taste. Your real watchlist is scattered across texts, screenshots, and half-remembered conversations, and the nightly \"what should we watch\" still burns twenty minutes.",
+    "strategy": "Own the list first: one place you control, independent of any platform, with full movie and TV metadata from TMDB. Then make the app open on a decision, not a library. Tonight's pick is chosen by Claude from what you've saved, what you've already finished, and the time of day, with a reason attached. Free gets the daily pick. Pro gets to steer it: time, company, energy, not tonight, pick again, alerts when a show you track drops a new season.",
+    "theBet": "People frustrated with platform recommendations will keep a personal list if the payoff is a faster decision. This is the first AvidX product built to charge money, and the one proving the whole paid pattern end to end: Stripe, gating, legal, support, the lot."
   },
   {
     "id": "planfinity",
@@ -43,9 +57,16 @@
         "platform": "Web"
       }
     ],
-    "problem": "The bottleneck in Gridfinity organization isn't the printing. It's the planning. Figuring out what bins fit where requires juggling drawer dimensions, grid math, and bin sizes in your head, then hoping you got it right before committing hours to a print.",
-    "strategy": "A single client-side tool: enter your drawer dimensions, place bin footprints on a live grid, get instant fit validation, and export a clean print list. No account, no backend. The whole thing runs in the browser because it doesn't need to be more than that.",
-    "theBet": "Zero-friction tools win in hobbyist communities. No signup means no barrier. Someone can share a link and a new user is productive in 30 seconds. Simplicity is the feature."
+    "stack": "Next.js · TypeScript · Tailwind · Vitest · Render static",
+    "highlights": [
+      "Drawer dimensions to baseplate plan in one step",
+      "Rotation, undo/redo, random fill",
+      "Print summary plus JSON save and load",
+      "Client-side, no account, works on a phone"
+    ],
+    "problem": "The bottleneck in Gridfinity organization isn't the printing. It's the planning. Measure the drawer, work out how many grid units fit, figure out which baseplates to print within a 5×5 bed, decide which bins go where, then hope you got it right before committing hours of filament.",
+    "strategy": "A single client-side tool. Enter drawer dimensions and get the grid and baseplate split instantly. Place bin footprints on a live grid with rotation, undo, and random fill, then export a print summary and a JSON layout you can reload later. No account, no backend. The whole thing runs in the browser because it doesn't need to be more than that.",
+    "theBet": "Zero-friction tools win in hobbyist communities. No signup means no barrier: someone can share a link and a new user is productive in thirty seconds. The space has since filled with heavier tools that do CAD export and layout optimizers. Planfinity's edge is the fastest path from drawer dimensions to print list."
   },
   {
     "id": "mail-zero",
@@ -59,8 +80,15 @@
         "platform": "Web"
       }
     ],
-    "problem": "Most inbox advice focuses on processing faster. That's the wrong lever. The real problem is volume. Too much arrives that never should have. Mail Zero took a Gmail export and showed you exactly who was filling your inbox and what to cut.",
-    "strategy": "Upload a Google Takeout archive, get a full dashboard: health score, email debt, top senders, unsubscribe candidates. Privacy-first: nothing left your browser session that didn't need to.",
-    "theBet": "Shipped, worked, and then the ground moved. Once an LLM could plug directly into Gmail and triage an inbox interactively, an upload-a-dashboard product had no reason to exist. Wound down in August 2026. If it comes back, it comes back as an agent, not an app."
+    "stack": "Next.js · Claude Haiku · Umami · Render",
+    "highlights": [
+      "Streaming parser, flat memory at any size",
+      "Attention model ranks what you actually open",
+      "Claude-categorized newsletter audit",
+      "No OAuth, nothing stored"
+    ],
+    "problem": "Gmail has no view of who fills your inbox. Most inbox advice is about processing faster, but the real lever is inflow. I wanted to see, with numbers, which senders and newsletters to cut.",
+    "strategy": "Export a Google Takeout archive, upload it, get a full dashboard: inbox health score, email debt, top senders, unsubscribe candidates ranked by a client-side attention model, and a newsletter audit that used Claude to categorize every subscription and flag the ones you never open. Privacy-first by design: no OAuth, no email content stored, nothing kept after the session.",
+    "theBet": "Shipped, worked, and then the ground moved. Once an LLM could plug straight into Gmail and triage an inbox interactively, an upload-a-dashboard product had no reason to exist. Wound down August 2026. If it comes back, it comes back as an agent, not an app."
   }
 ]
