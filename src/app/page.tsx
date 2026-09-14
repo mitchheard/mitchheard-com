@@ -36,7 +36,7 @@ export default function HomePage() {
             with <span className="hero-code">commit</span> access.
           </h1>
           <p className="hero-lede">
-            I left engineering for product when I noticed the mistakes that hurt most were made before anyone wrote a line of code. I gravitate toward the messy coordination problems, where the product has to hold together multiple users with conflicting incentives.
+            I left engineering for product when I noticed the mistakes that hurt most were made before anyone wrote a line of code. I keep ending up in the messiest version of that: one product that has to hold together several kinds of users with conflicting incentives.
           </p>
           <p className="hero-sub">
             By day I run product at <a href="https://newzip.com" target="_blank" rel="noopener noreferrer">Newzip</a>. Nights and weekends I run AvidX, a studio for small software bets: build fast, validate with real people, keep what works.
