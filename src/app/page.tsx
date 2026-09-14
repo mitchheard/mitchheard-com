@@ -36,7 +36,7 @@ export default function HomePage() {
             with <span className="hero-code">commit</span> access.
           </h1>
           <p className="hero-lede">
-            I moved from engineering to product when I realized the bottleneck wasn&apos;t the code. It was knowing what to build. I gravitate toward the messy coordination problems, where the product has to hold together multiple users with conflicting incentives.
+            I left engineering for product when I realized the bottleneck wasn&apos;t the code. It was knowing what to build. I gravitate toward the messy coordination problems, where the product has to hold together multiple users with conflicting incentives.
           </p>
           <p className="hero-sub">
             By day I run product at <a href="https://newzip.com" target="_blank" rel="noopener noreferrer">Newzip</a>. Nights and weekends I run AvidX, a studio for small software bets: build fast, validate with real people, keep what works.
