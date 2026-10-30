@@ -6,7 +6,7 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/mitchheard/",
   email: "hello@mitchheard.com",
   /** Optional portrait, 4:5. Drop a file at public/mitch.jpg and set this to "/mitch.jpg". */
-  photo: "" as string,
+  photo: "/mitch.jpg" as string,
   /** "Now" list on the home page. Keeps the site feeling alive. Edit here. */
   currentFocus: [
     "Scaling a B2B2C real estate platform toward Series A",

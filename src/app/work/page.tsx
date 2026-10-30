@@ -1,5 +1,6 @@
 import { ProjectOutboundLink } from "@/components/ProjectOutboundLink";
 import projectsData from "@/data/projects.json";
+import { career, careerIntro } from "@/data/career";
 
 type Badge = { stage: string; platform: string };
 
@@ -35,9 +36,14 @@ export default function WorkPage() {
       <header className="mb-12 md:mb-16">
         <h1 className="project-page-title">Work</h1>
         <p className="project-page-sub">
-          Small bets under AvidX. Live ones first. The retired one stays because the reason it died is the useful part.
+          Small bets under AvidX, then the day jobs that taught me how to make them.
         </p>
       </header>
+
+      <div className="work-section-head" id="bets">
+        <h2 className="label">Bets</h2>
+        <p className="work-section-sub">Live ones first. The retired one stays because the reason it died is the useful part.</p>
+      </div>
 
       <ul className="project-list">
         {projects.map((p) => {
@@ -114,6 +120,27 @@ export default function WorkPage() {
             </li>
           );
         })}
+      </ul>
+
+      <div className="work-section-head work-section-head-spaced" id="career">
+        <h2 className="label">Career</h2>
+        <p className="work-section-sub work-section-intro">{careerIntro}</p>
+      </div>
+
+      <ul className="career-list">
+        {career.map((c) => (
+          <li key={c.id} id={c.id} className="career-card scroll-mt-10">
+            <div className="career-head">
+              <h3 className="career-company">
+                <a href={c.url} target="_blank" rel="noopener noreferrer">{c.company}</a>
+              </h3>
+              <span className="career-years">{c.years}</span>
+            </div>
+            <p className="career-roles">{c.roles}</p>
+            <p className="career-sides">{c.sides}</p>
+            <p className="career-story">{c.story}</p>
+          </li>
+        ))}
       </ul>
     </article>
   );
