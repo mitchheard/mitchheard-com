@@ -36,11 +36,15 @@ export default function WorkPage() {
       <header className="mb-12 md:mb-16">
         <h1 className="project-page-title">Work</h1>
         <p className="project-page-sub">
-          Small bets under AvidX, then the day jobs that taught me how to make them.
+          Small bets under AvidX, and the companies that taught me how to make them.
         </p>
+        <nav className="work-subnav" aria-label="On this page">
+          <a href="#bets">Bets</a>
+          <a href="#career">Career</a>
+        </nav>
       </header>
 
-      <div className="work-section-head" id="bets">
+      <div className="work-section-head scroll-mt-10" id="bets">
         <h2 className="label">Bets</h2>
         <p className="work-section-sub">Live ones first. The retired one stays because the reason it died is the useful part.</p>
       </div>
@@ -122,7 +126,7 @@ export default function WorkPage() {
         })}
       </ul>
 
-      <div className="work-section-head work-section-head-spaced" id="career">
+      <div className="work-section-head work-section-head-spaced scroll-mt-10" id="career">
         <h2 className="label">Career</h2>
         <p className="work-section-sub work-section-intro">{careerIntro}</p>
       </div>
