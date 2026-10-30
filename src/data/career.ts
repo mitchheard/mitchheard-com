@@ -32,7 +32,7 @@ export const career: CareerEntry[] = [
     years: "2018 to 2022",
     sides: "Operators · Service companies · Independent contractors · Compliance",
     story:
-      "A marketplace for oilfield labor: operators who need crews, the companies and independents who supply them, and the payments, insurance, and compliance layer that makes any of it legal. Operators want the crew tomorrow at the lowest rate. Contractors want steady work and fast pay. Compliance wants nobody on site without the right cert. It looks like a job board and is actually a trust and payments system with listings attached. Optimize one side and the other side's experience quietly degrades.",
+      "A marketplace for oilfield labor: operators who need crews, the companies and independents who supply them, and the payments, insurance, and compliance layer that keeps everyone covered. Operators want the right crew on site tomorrow at the best rate. Contractors want steady work and fast pay. Compliance wants every person on site qualified and insured before the job starts. It looks like a job board and is actually a trust and payments system with listings attached. Improve one side and you have to check what it did to the other two.",
   },
   {
     id: "bazaarvoice",
@@ -42,6 +42,6 @@ export const career: CareerEntry[] = [
     years: "2011 to 2018",
     sides: "Brands · Retailers · Shoppers",
     story:
-      "Ratings and reviews between brands who want them, retailers who display them, and shoppers who write and read them. The brand wants every review syndicated and the bad ones buried. The retailer wants volume and authenticity, because a fake review costs them the shopper. The shopper wants to know if the thing is any good. Seven years, starting in implementation and ending in product, learning that the schema of a relationship matters more than the schema of the database.",
+      "Ratings and reviews between brands, the retailers who sell their products, and the shoppers deciding what to buy. Brands want reviews on every product, because a product with none is a hard sell and the feedback, good and bad, is how the next version gets better. Retailers want reviews across their whole catalog too: the ones they collect themselves plus the ones syndicated from brands. Shoppers want to trust that what they're reading is real, so they can solve whatever sent them shopping. I spent seven years on the technical side of making that work for new partners, starting in implementation and ending in product, and learned that the schema of a relationship matters more than the schema of the database.",
   },
 ];
