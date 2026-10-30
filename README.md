@@ -11,6 +11,8 @@ npm install
 npm run dev
 ```
 
+If files edited from outside the editor (Cowork, a mounted drive) don't hot-reload, use `npm run dev:poll` instead; it polls the filesystem instead of waiting for change events.
+
 Open [http://localhost:3000](http://localhost:3000). Edit pages in `src/app/`; the dev server hot-reloads.
 
 **Production build (static):**

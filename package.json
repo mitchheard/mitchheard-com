@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "dev:poll": "WATCHPACK_POLLING=true CHOKIDAR_USEPOLLING=true next dev --webpack"
   },
   "dependencies": {
     "next": "16.1.6",

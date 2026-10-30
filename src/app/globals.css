@@ -414,12 +414,13 @@ code {
 .arc-row {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2px 20px;
-  padding: 10px 0;
+  gap: 2px 24px;
+  padding: 12px 0;
   border-bottom: 1px solid var(--rule-2);
   align-items: baseline;
 }
-@media (min-width: 640px) { .arc-row { grid-template-columns: 130px 1fr auto; } }
+.arc-row:first-child { padding-top: 0; }
+@media (min-width: 640px) { .arc-row { grid-template-columns: 140px 1fr auto; } }
 .arc-row:last-child { border-bottom: none; }
 .arc-company { font-family: var(--font-newsreader), Georgia, serif; font-size: 20px; color: var(--ink); }
 .arc-company:hover { color: var(--gold-dark); }
