@@ -153,15 +153,6 @@ code {
   border-radius: 3px;
   display: block;
 }
-.hero-photo-wrap { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
-.hero-photo-caption {
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--sand);
-}
-
 /* Sections: mono label in the left gutter, content on the right */
 .section {
   border-top: 1px solid var(--rule);

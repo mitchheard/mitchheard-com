@@ -51,11 +51,8 @@ export default function HomePage() {
         </div>
         {site.photo ? (
           <div className="md:col-span-4 md:flex md:justify-end">
-            <figure className="hero-photo-wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={site.photo} alt={site.name} className="hero-photo" width={240} height={240} />
-              <figcaption className="hero-photo-caption">Mitch Heard</figcaption>
-            </figure>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={site.photo} alt={site.name} className="hero-photo" width={240} height={240} />
           </div>
         ) : null}
       </header>

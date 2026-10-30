@@ -11,7 +11,7 @@ export const site = {
   currentFocus: [
     "Scaling a B2B2C real estate platform toward Series A",
     "Building Lellow and Watch Me under AvidX",
-    "Testing how fast an idea can go from an empty repo to production",
+    "Testing how quickly an idea can go from new repo to production",
     "Cargo e-bike dad",
   ],
 } as const;
