@@ -5,7 +5,7 @@ export const site = {
   footerLine: "Builder of systems and things.",
   linkedin: "https://www.linkedin.com/in/mitchheard/",
   email: "hello@mitchheard.com",
-  /** Optional portrait, 4:5. Drop a file at public/mitch.jpg and set this to "/mitch.jpg". */
+  /** Optional portrait, square. Drop a file at public/mitch.jpg and set this to "/mitch.jpg". */
   photo: "/mitch.jpg" as string,
   /** "Now" list on the home page. Keeps the site feeling alive. Edit here. */
   currentFocus: [
