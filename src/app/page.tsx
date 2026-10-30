@@ -14,7 +14,7 @@ type Project = {
 
 const isRetired = (p: Project) => p.badges?.some((b) => b.stage.toLowerCase() === "retired") ?? false;
 
-/* Home reads from projects.json so it can't drift from /work.
+/* Home reads from projects.json so it can't drift from /bets.
    Live projects get a card; retired ones drop to a single row underneath. */
 const projects = projectsData as Project[];
 const live = projects.filter((p) => !isRetired(p));
@@ -75,13 +75,13 @@ export default function HomePage() {
       {/* Work */}
       <section className="section">
         <div>
-          <h2 className="label">Work</h2>
-          <p className="section-note">Small software bets, built fast and judged honestly.</p>
+          <h2 className="label">Bets</h2>
+          <p className="section-note">Small software bets under AvidX. <Link href="/bets">All of them</Link></p>
         </div>
         <div className="flex flex-col gap-7">
           <div className="work-grid">
             {live.map((p) => (
-              <Link key={p.id} href={`/work#${p.id}`} className={`work-card${p.image ? " has-shot" : ""}`}>
+              <Link key={p.id} href={`/bets#${p.id}`} className={`work-card${p.image ? " has-shot" : ""}`}>
                 {p.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={p.image} alt={`${p.title} screenshot`} className="work-shot" loading="lazy" />
@@ -98,7 +98,7 @@ export default function HomePage() {
             <div key={p.id} className="retired-row">
               <span className="retired-title">{p.title}</span>
               <span className="retired-desc">
-                {p.description}. <Link href={`/work#${p.id}`}>Why it was retired</Link>
+                {p.description}. <Link href={`/bets#${p.id}`}>Why it was retired</Link>
               </span>
               <span className="stage stage-retired">Retired</span>
             </div>
