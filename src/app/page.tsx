@@ -39,7 +39,7 @@ export default function HomePage() {
             I left engineering for product when I noticed the mistakes that hurt most were made before anyone wrote a line of code. I keep ending up in the messiest version of that: one product that has to hold together several kinds of users with conflicting incentives.
           </p>
           <p className="hero-sub">
-            By day I run product at <a href="https://newzip.com" target="_blank" rel="noopener noreferrer">Newzip</a>. Nights and weekends I run AvidX, a studio for small software bets: build fast, validate with real people, keep what works.
+            By day I run product at <a href="https://newzip.com" target="_blank" rel="noopener noreferrer">Newzip</a>. Nights and weekends I run AvidX, a studio for small software bets. Build fast, validate with real people, keep what works.
           </p>
           <div className="meta flex flex-wrap gap-x-4 gap-y-1">
             <span>{site.location}</span>
@@ -52,7 +52,7 @@ export default function HomePage() {
         {site.photo ? (
           <div className="md:col-span-4 md:flex md:justify-end">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={site.photo} alt={site.name} className="hero-photo" width={220} height={275} />
+            <img src={site.photo} alt={site.name} className="hero-photo" width={200} height={250} />
           </div>
         ) : null}
       </header>
