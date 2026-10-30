@@ -1,4 +1,4 @@
-Personal site for [mitchheard.com](https://mitchheard.com): public front (home, work = career, bets = AvidX products; writing hidden until the first post) and a **private dashboard** at `/dashboard` for quick links and notes — suitable as a browser homepage or new-tab page.
+Personal site for [mitchheard.com](https://mitchheard.com): public front (home, career, projects = AvidX products; writing hidden until the first post) and a **private dashboard** at `/dashboard` for quick links and notes — suitable as a browser homepage or new-tab page.
 
 - **Layout:** Top nav, single centered column; responsive with a mobile hamburger menu.
 - **Content:** Edit JSON/TS in `src/data/` — no database. See [CONTENT.md](./CONTENT.md) for the content guide ("light CRM").

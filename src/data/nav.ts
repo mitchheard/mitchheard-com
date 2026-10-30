@@ -1,7 +1,7 @@
 export const publicNav = [
   { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
-  { href: "/bets", label: "Bets" },
+  { href: "/career", label: "Career" },
+  { href: "/projects", label: "Projects" },
 ] as const;
 
 // Writing is hidden until there's a first post: add { href: "/articles", label: "Writing" } back here.
