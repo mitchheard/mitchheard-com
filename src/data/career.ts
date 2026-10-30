@@ -28,7 +28,7 @@ export const career: CareerEntry[] = [
     id: "rigup",
     company: "RigUp",
     url: "https://www.rigup.com",
-    roles: "Senior Product Manager, then Lead Product Manager",
+    roles: "Lead Product Manager",
     years: "2018 to 2022",
     sides: "Operators · Service companies · Independent contractors · Compliance",
     story:
@@ -38,7 +38,7 @@ export const career: CareerEntry[] = [
     id: "bazaarvoice",
     company: "Bazaarvoice",
     url: "https://www.bazaarvoice.com",
-    roles: "Implementation engineering, then product catalog and API services, then product",
+    roles: "Senior Manager, Global Technical Services",
     years: "2011 to 2018",
     sides: "Brands · Retailers · Shoppers",
     story:
