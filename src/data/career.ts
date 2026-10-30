@@ -32,7 +32,7 @@ export const career: CareerEntry[] = [
     years: "2018 to 2022",
     sides: "Operators · Service companies · Independent contractors · Compliance",
     story:
-      "A marketplace for oilfield labor: operators who need crews, the companies and independents who supply them, and the payments, insurance, and compliance layer that keeps everyone covered. Operators want the right crew on site tomorrow at the best rate. Contractors want steady work and fast pay. Compliance wants every person on site qualified and insured before the job starts. It looks like a job board and is actually a trust and payments system with listings attached. Improve one side and you have to check what it did to the other two.",
+      "A marketplace for oilfield labor: operators who need crews, the companies and independents who supply them, and the payments, insurance, and compliance layer that keeps everyone covered. Operators want the right crew on site tomorrow at the best rate. Contractors want steady work and fast pay. Compliance wants every person on site qualified and insured before the job starts. We digitized the whole thing, finding work, finding workers, and all the HR in between, taking processes like timesheets from spreadsheets to a mobile app in a worker's pocket. The company grew about eightfold while I was there. It's where I learned to make big bets, and to build for everyone from a crew lead in the field to an analyst in the office.",
   },
   {
     id: "bazaarvoice",
