@@ -20,9 +20,9 @@ export const career: CareerEntry[] = [
     url: "https://newzip.com",
     roles: "Chief Product Officer",
     years: "2022 to now",
-    sides: "Lenders · Agents · Homebuyers · Internal teams",
+    sides: "Lenders · Agents · Homebuyers",
     story:
-      "A real estate platform that puts loan officers at the front of the homebuying process and hands off to agents, with the buyer in the middle of both. Every side's economics depend on a handoff it doesn't control: the lender wants the lead, the agent wants the client, the buyer wants a house and would rather not be a lead at all. The decision that shapes everything is where the handoff happens and who it's designed around. I run product, a small distributed team, and the platform that holds all four together.",
+      "A real estate platform that puts loan officers at the front of the homebuying process and hands off to agents, with the buyer in the middle of both. Every side's economics depend on a handoff it doesn't control: the lender wants the lead, the agent wants the client, the buyer wants a house and would rather not be a lead at all. The decision that shapes everything is where the handoff happens and who it's designed around. I run product, a small distributed team, and the platform that holds all three together.",
   },
   {
     id: "rigup",
