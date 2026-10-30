@@ -8,20 +8,6 @@ export default function CareerPage() {
         <p className="work-lede">{careerIntro}</p>
       </header>
 
-      {/* The arc in one glance */}
-      <section className="section">
-        <h2 className="label">The arc</h2>
-        <ol className="arc">
-          {career.map((c) => (
-            <li key={c.id} className="arc-row">
-              <a href={`#${c.id}`} className="arc-company plain">{c.company}</a>
-              <span className="arc-role">{c.roles}</span>
-              <span className="arc-years">{c.years}</span>
-            </li>
-          ))}
-        </ol>
-      </section>
-
       {/* The stories */}
       {career.map((c) => (
         <section key={c.id} id={c.id} className="section scroll-mt-10">

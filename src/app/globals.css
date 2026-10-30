@@ -409,20 +409,3 @@ code {
 .career-gutter { display: flex; flex-direction: column; }
 .career-body { min-width: 0; }
 
-/* Career arc: one row per company */
-.arc { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
-.arc-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2px 24px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--rule-2);
-  align-items: baseline;
-}
-.arc-row:first-child { padding-top: 0; }
-@media (min-width: 640px) { .arc-row { grid-template-columns: 140px 1fr auto; } }
-.arc-row:last-child { border-bottom: none; }
-.arc-company { font-family: var(--font-newsreader), Georgia, serif; font-size: 20px; color: var(--ink); }
-.arc-company:hover { color: var(--gold-dark); }
-.arc-role { font-size: 14px; color: var(--ink-2); }
-.arc-years { font-family: var(--font-plex-mono), ui-monospace, monospace; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--sand); white-space: nowrap; }
