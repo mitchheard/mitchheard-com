@@ -407,5 +407,5 @@ code {
 .work-lede { font-size: 17px; line-height: 1.6; color: var(--ink-2); max-width: 600px; }
 @media (min-width: 768px) { .work-lede { font-size: 18px; } }
 .career-gutter { display: flex; flex-direction: column; }
-.career-body { min-width: 0; }
+.career-body { min-width: 0; padding-bottom: 40px; }
 
