@@ -149,8 +149,17 @@ code {
   max-width: 240px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border: 1px solid var(--rule);
+  border: none;
+  border-radius: 3px;
   display: block;
+}
+.hero-photo-wrap { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+.hero-photo-caption {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sand);
 }
 
 /* Sections: mono label in the left gutter, content on the right */
