@@ -20,9 +20,9 @@ export const career: CareerEntry[] = [
     url: "https://newzip.com",
     roles: "Chief Product Officer",
     years: "2022 to now",
-    sides: "Lenders · Agents · Homebuyers",
+    sides: "Lenders · Agents · Buyers and sellers",
     story:
-      "A real estate platform that puts loan officers at the front of the homebuying process and hands off to agents, with the buyer in the middle of both. Every side's economics depend on a handoff it doesn't control: the lender wants the lead, the agent wants the client, the buyer wants a house and would rather not be a lead at all. The decision that shapes everything is where the handoff happens and who it's designed around. I run product, a small distributed team, and the platform that holds all three together.",
+      "Newzip runs real estate programs for mortgage lenders, under their brand. We match buyers and sellers with the right agent and stay in the deal through closing. Every side wants something different. The lender wants to keep the borrower and finally see what happens after the referral. The agent wants clients worth their time. The buyer or seller wants to move and would rather not be a lead. Matching is where Newzip started, and it's still the core: we vet whether an agent is good, judge separately whether they're right for this client, and build everything else around that. Today that runs across 40+ financial institutions and 15,000+ agents. I'm the only product person, so I set the strategy, lead a team across four countries, and build our internal tools myself.",
   },
   {
     id: "rigup",
