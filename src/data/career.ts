@@ -22,7 +22,7 @@ export const career: CareerEntry[] = [
     years: "2022 to now",
     sides: "Lenders · Agents · Buyers and sellers",
     story:
-      "Newzip runs real estate programs for mortgage lenders, under their brand. We match buyers and sellers with the right agent and stay in the deal through closing. Every side wants something different. The lender wants to keep the borrower and finally see what happens after the referral. The agent wants clients worth their time. The buyer or seller wants to move and would rather not be a lead. Matching is where Newzip started, and it's still the core: we vet whether an agent is good, judge separately whether they're right for this client, and build everything else around that. Today that runs across 40+ financial institutions and 15,000+ agents. I'm the only product person, so I set the strategy, lead a team across four countries, and build our internal tools myself.",
+      "Newzip runs real estate programs for mortgage lenders, under their brand. We match buyers and sellers with the right agent and stay in the deal through closing. Every side wants something different. The lender wants to keep the borrower and finally see what happens after the referral. The agent wants clients worth their time. The buyer or seller wants to move and would rather not be a lead. Matching is where Newzip started, and it's still the core: we vet whether an agent is good, judge separately whether they're right for this client, and build everything else around that. Today that runs across 40+ financial institutions and 15,000+ agents. I lead product, design, and engineering, a team across four countries, and build our internal tools myself.",
   },
   {
     id: "rigup",
