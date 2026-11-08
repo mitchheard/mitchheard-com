@@ -57,11 +57,15 @@ a {
   color: var(--gold);
   text-decoration: none;
   border-bottom: 1px solid var(--gold-tint);
-  transition: color 0.15s, border-color 0.15s;
+  background-image: linear-gradient(var(--gold), var(--gold));
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  transition: color 0.15s, background-size 0.25s ease-out;
 }
 a:hover {
   color: var(--gold-dark);
-  border-bottom-color: var(--gold);
+  background-size: 100% 1px;
 }
 a.plain, a.plain:hover { border-bottom: none; }
 
@@ -207,6 +211,8 @@ code {
 }
 .work-card:hover { border-bottom: none; }
 .work-card:hover .work-card-title { color: var(--gold-dark); }
+.work-card .work-shot { transition: transform 0.2s ease-out; }
+.work-card:hover .work-shot { transform: translateY(-3px); }
 .work-shot {
   display: block;
   width: 100%;
@@ -409,3 +415,31 @@ code {
 .career-gutter { display: flex; flex-direction: column; }
 .career-body { min-width: 0; padding-bottom: 40px; }
 
+
+/* Motion: one hero reveal on load, a caret that blinks twice, then stillness */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.rise {
+  opacity: 0;
+  animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 90ms + 60ms);
+}
+.caret {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.78em;
+  margin-left: 0.08em;
+  background: var(--gold);
+  vertical-align: -0.06em;
+  opacity: 0;
+  animation: caret 0.5s steps(1) 0.75s 4;
+}
+@keyframes caret { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise { opacity: 1; animation: none; }
+  .caret { display: none; }
+  .work-card .work-shot, a { transition: none; }
+}

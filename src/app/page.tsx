@@ -31,18 +31,18 @@ export default function HomePage() {
       {/* Hero */}
       <header className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-6">
         <div className={`flex flex-col gap-5 ${site.photo ? "md:col-span-8" : "md:col-span-10"}`}>
-          <h1 className="hero-title">
+          <h1 className="hero-title rise" style={{ "--i": 0 } as React.CSSProperties}>
             Product leader
             <br />
-            with <span className="hero-code">commit</span> access.
+            with <span className="hero-code">commit<span className="caret" aria-hidden /></span> access.
           </h1>
-          <p className="hero-lede">
+          <p className="hero-lede rise" style={{ "--i": 1 } as React.CSSProperties}>
             I left engineering for product when I noticed the mistakes that hurt most were made before anyone wrote a line of code. I keep ending up in the messiest version of that: one product that has to hold together several kinds of users with conflicting incentives.
           </p>
-          <p className="hero-sub">
+          <p className="hero-sub rise" style={{ "--i": 2 } as React.CSSProperties}>
             By day I run product at <a href="https://newzip.com" target="_blank" rel="noopener noreferrer">Newzip</a>. Nights and weekends I run AvidX, a studio for small software bets. Build fast, validate with real people, keep what works.
           </p>
-          <div className="meta flex flex-wrap gap-x-4 gap-y-1">
+          <div className="meta rise flex flex-wrap gap-x-4 gap-y-1" style={{ "--i": 3 } as React.CSSProperties}>
             <span>{site.location}</span>
             <span aria-hidden>·</span>
             <span>CPO, <a href="https://newzip.com" target="_blank" rel="noopener noreferrer">Newzip</a></span>
@@ -53,7 +53,7 @@ export default function HomePage() {
         {site.photo ? (
           <div className="md:col-span-4 md:flex md:justify-end">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={site.photo} alt={site.name} className="hero-photo" width={240} height={240} />
+            <img src={site.photo} alt={site.name} className="hero-photo rise" style={{ "--i": 1 } as React.CSSProperties} width={240} height={240} />
           </div>
         ) : null}
       </header>
