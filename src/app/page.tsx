@@ -8,6 +8,7 @@ type Project = {
   description: string;
   url: string;
   image?: string;
+  hidden?: boolean;
   badges?: { stage: string; platform: string }[];
   theBet?: string;
 };
@@ -16,7 +17,7 @@ const isRetired = (p: Project) => p.badges?.some((b) => b.stage.toLowerCase() ==
 
 /* Home reads from projects.json so it can't drift from /projects.
    Live projects get a card; retired ones drop to a single row underneath. */
-const projects = projectsData as Project[];
+const projects = (projectsData as Project[]).filter((p) => !p.hidden);
 const live = projects.filter((p) => !isRetired(p));
 const retired = projects.filter(isRetired);
 

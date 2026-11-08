@@ -112,7 +112,8 @@
     ],
     "problem": "Austin's older neighborhoods still have the concrete street-sign posts from the era when the city's signs were burnt orange, a nod to UT. Almost all the orange blades are gone and nobody was keeping track of the posts that could one day carry one again.",
     "strategy": "A mobile-first map of every surviving post: pins by status, a detail sheet with history, a public form for reporting one we missed, and an admin queue so the two of us can confirm, update, or retire a sign from a phone without touching code. A build-time snapshot keeps the map up even if the database is asleep.",
-    "theBet": "Not a business, a record. The bet is that a city's small details are worth documenting before they disappear, and that two people with a map can do it. If the UT community or a historical society wants the data, it's theirs."
+    "theBet": "Not a business, a record. The bet is that a city's small details are worth documenting before they disappear, and that two people with a map can do it. If the UT community or a historical society wants the data, it's theirs.",
+    "hidden": true
   },
   {
     "id": "mail-zero",

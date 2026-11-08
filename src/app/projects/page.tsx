@@ -9,6 +9,7 @@ type Project = {
   description: string;
   url: string;
   image?: string;
+  hidden?: boolean;
   stack?: string;
   highlights?: string[];
   badges?: Badge[];
@@ -28,7 +29,7 @@ function badgeClass(stage: string): string {
 const isRetired = (p: Project) => p.badges?.some((b) => b.stage.toLowerCase() === "retired") ?? false;
 
 export default function ProjectsPage() {
-  const projects = projectsData as Project[];
+  const projects = (projectsData as Project[]).filter((p) => !p.hidden);
 
   return (
     <article>
