@@ -23,6 +23,29 @@
     "theBet": "Built from zero in one evening as an experiment in how fast an idea can reach a real device, then kept because my kids actually use it. The bet is that a calm, offline, ad-free option with a PBS-grade ethos is rare enough that parents will pass it to other parents. Four families are testing it now."
   },
   {
+    "id": "highlight-zone",
+    "title": "Highlight Zone",
+    "description": "Sports highlights that never send a kid to YouTube",
+    "url": "https://highlight.zone",
+    "image": "",
+    "badges": [
+      {
+        "stage": "Live",
+        "platform": "Web / PWA"
+      }
+    ],
+    "stack": "Node · Vanilla JS · YouTube Data API · ESPN · Supabase auth · Render",
+    "highlights": [
+      "Official league and club highlights, inside the app",
+      "A tap-catching cover over the player; nothing leaves",
+      "Scores hidden until you ask, for everyone",
+      "Idea to a live, shareable app in three days"
+    ],
+    "problem": "My son loves sports, his screen time is limited, and he's asleep before games end. So he catches up on highlights on YouTube, which is built to keep you watching: one tap and he's in recommendations, comments, or something that isn't sports at all.",
+    "strategy": "Pick your teams and sports and get only game highlights, from official league and club channels, found through the YouTube Data API and matched to real games with ESPN's scoreboard. A cover over the player catches every tap, the app draws its own controls, and when a video ends you get the app's own end screen instead of YouTube's suggestions. Scores stay hidden until you turn them on, which turned out to be what adults wanted too. Favorite a club and it follows you across competitions.",
+    "theBet": "The constraints wrote most of the product. The NFL blocks its footage outside YouTube, so it's greyed out with an honest note. YouTube's policies rule out charging for embedded video, so it's free and costs nothing to run. The player cover bends a rule and I kept it anyway, because it's the one thing that makes the app safe to hand to a kid. Built in three evenings; friends are using it now."
+  },
+  {
     "id": "watch-me",
     "title": "Watch Me",
     "description": "A movie and TV watchlist that picks what you watch tonight",
@@ -67,6 +90,29 @@
     "problem": "The bottleneck in Gridfinity organization isn't the printing. It's the planning. Measure the drawer, work out how many grid units fit, figure out which baseplates to print within a 5×5 bed, decide which bins go where, then hope you got it right before committing hours of filament.",
     "strategy": "A single client-side tool. Enter drawer dimensions and get the grid and baseplate split instantly. Place bin footprints on a live grid with rotation, undo, and random fill, then export a print summary and a JSON layout you can reload later. No account, no backend. The whole thing runs in the browser because it doesn't need to be more than that.",
     "theBet": "Zero-friction tools win in hobbyist communities. No signup means no barrier: someone can share a link and a new user is productive in thirty seconds. The space has since filled with heavier tools that do CAD export and layout optimizers. Planfinity's edge is the fastest path from drawer dimensions to print list."
+  },
+  {
+    "id": "orange-signs",
+    "title": "Orange Signs",
+    "description": "A map of Austin's surviving burnt-orange street sign posts",
+    "url": "https://orange-signs.onrender.com",
+    "image": "",
+    "badges": [
+      {
+        "stage": "Live",
+        "platform": "Web"
+      }
+    ],
+    "stack": "Vite · Vanilla JS · Leaflet · Supabase · Render",
+    "highlights": [
+      "61 concrete posts catalogued, with status and history",
+      "Public reports with photos, admin review from a phone",
+      "Built with my brother-in-law",
+      "Rebuilt in a weekend, Nov 2026"
+    ],
+    "problem": "Austin's older neighborhoods still have the concrete street-sign posts from the era when the city's signs were burnt orange, a nod to UT. Almost all the orange blades are gone and nobody was keeping track of the posts that could one day carry one again.",
+    "strategy": "A mobile-first map of every surviving post: pins by status, a detail sheet with history, a public form for reporting one we missed, and an admin queue so the two of us can confirm, update, or retire a sign from a phone without touching code. A build-time snapshot keeps the map up even if the database is asleep.",
+    "theBet": "Not a business, a record. The bet is that a city's small details are worth documenting before they disappear, and that two people with a map can do it. If the UT community or a historical society wants the data, it's theirs."
   },
   {
     "id": "mail-zero",
