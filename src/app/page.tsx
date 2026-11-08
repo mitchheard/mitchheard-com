@@ -34,7 +34,7 @@ export default function HomePage() {
           <h1 className="hero-title rise" style={{ "--i": 0 } as React.CSSProperties}>
             Product leader
             <br />
-            with <span className="hero-code">commit<span className="caret" aria-hidden /></span> access.
+            with <span className="hero-code">commit</span> access.
           </h1>
           <p className="hero-lede rise" style={{ "--i": 1 } as React.CSSProperties}>
             I left engineering for product when I noticed the mistakes that hurt most were made before anyone wrote a line of code. I keep ending up in the messiest version of that: one product that has to hold together several kinds of users with conflicting incentives.
