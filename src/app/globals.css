@@ -219,6 +219,7 @@ code {
   aspect-ratio: 16 / 10;
   object-fit: cover;
   border: 1px solid var(--rule);
+  border-radius: 4px;
   background: var(--paper-2);
 }
 .work-card-head {
@@ -355,7 +356,11 @@ code {
 .project-shot {
   display: block;
   width: 100%;
+  max-width: 680px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
   border: 1px solid var(--rule);
+  border-radius: 4px;
   margin-bottom: 24px;
 }
 .project-row {
