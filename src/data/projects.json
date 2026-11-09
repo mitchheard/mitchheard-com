@@ -4,7 +4,7 @@
     "title": "Lellow",
     "description": "Offline, ad-free creative play and games for kids",
     "url": "https://lellow.app",
-    "image": "",
+    "image": "/projects/lellow.jpg",
     "badges": [
       {
         "stage": "Live",
@@ -27,7 +27,7 @@
     "title": "Highlight Zone",
     "description": "Sports highlights that never send a kid to YouTube",
     "url": "https://highlight.zone",
-    "image": "",
+    "image": "/projects/highlight-zone.jpg",
     "badges": [
       {
         "stage": "Live",
@@ -50,7 +50,7 @@
     "title": "Watch Me",
     "description": "A movie and TV watchlist that picks what you watch tonight",
     "url": "https://gowatchme.app",
-    "image": "",
+    "image": "/projects/watch-me.jpg",
     "badges": [
       {
         "stage": "Live",
@@ -73,7 +73,7 @@
     "title": "Planfinity",
     "description": "Gridfinity drawer planner for 3D printing",
     "url": "https://planfinity.app",
-    "image": "",
+    "image": "/projects/planfinity.jpg",
     "badges": [
       {
         "stage": "Live",
@@ -120,7 +120,7 @@
     "title": "Mail Zero",
     "description": "Gmail inbox analyzer",
     "url": "#",
-    "image": "",
+    "image": "/projects/mail-zero.jpg",
     "badges": [
       {
         "stage": "Retired",
