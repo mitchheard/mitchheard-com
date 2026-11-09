@@ -369,21 +369,27 @@ code {
   aspect-ratio: 9 / 16;
   border-radius: 22px;
 }
-.project-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  max-width: 680px;
-  margin: -8px 0 24px;
-}
-.project-gallery-shot {
+
+/* Filmstrip gallery */
+.gallery { max-width: 680px; margin-bottom: 24px; }
+.gallery-main { margin-bottom: 10px; animation: rise 0.25s ease-out; }
+.gallery-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.gallery-thumb {
   display: block;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  padding: 0;
   border: 1px solid var(--rule);
   border-radius: 3px;
+  background: var(--paper-2);
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.15s, border-color 0.15s;
 }
+.gallery-thumb img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.gallery-thumb:hover { opacity: 0.85; }
+.gallery-thumb.is-active { opacity: 1; border-color: var(--gold); }
+.gallery-thumb:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .gallery-main { animation: none; } }
 .project-row {
   display: grid;
   grid-template-columns: 1fr;
