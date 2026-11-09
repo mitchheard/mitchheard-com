@@ -369,6 +369,21 @@ code {
   aspect-ratio: 9 / 16;
   border-radius: 22px;
 }
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 680px;
+  margin: -8px 0 24px;
+}
+.project-gallery-shot {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+}
 .project-row {
   display: grid;
   grid-template-columns: 1fr;

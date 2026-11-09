@@ -20,7 +20,12 @@
     ],
     "problem": "Kids' apps are either ad-funded attention traps or subscription walls, and most of them stop working the moment the wifi does. I wanted something my own kids could open on an iPad in airplane mode: no account, no ads, no upsell, no network.",
     "strategy": "A progressive web app that installs to the home screen and runs entirely offline. Nine activities: freehand coloring and tap-to-fill across 64 line-art pictures, a saved-art gallery, themed word hunts, a math game built on drag-to-feed, a platformer, a plane-dodger, a memory match. Every drawing is a keepsake, so a parent can sign in once and the whole family's art and scores sync across devices. The cast is named after my kids' own words for things: Lellow, Bumbo, Confetti Monster, Aircoo, Gordy.",
-    "theBet": "Built from zero in one evening as an experiment in how fast an idea can reach a real device, then kept because my kids actually use it. The bet is that a calm, offline, ad-free option with a PBS-grade ethos is rare enough that parents will pass it to other parents. Four families are testing it now."
+    "theBet": "Built from zero in one evening as an experiment in how fast an idea can reach a real device, then kept because my kids actually use it. The bet is that a calm, offline, ad-free option with a PBS-grade ethos is rare enough that parents will pass it to other parents. Four families are testing it now.",
+    "gallery": [
+      "/projects/lellow-coloring.jpg",
+      "/projects/lellow-pairs.jpg",
+      "/projects/lellow-wordhunt.jpg"
+    ]
   },
   {
     "id": "highlight-zone",

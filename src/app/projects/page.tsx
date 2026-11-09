@@ -10,6 +10,7 @@ type Project = {
   url: string;
   image?: string;
   imageShape?: "portrait";
+  gallery?: string[];
   hidden?: boolean;
   stack?: string;
   highlights?: string[];
@@ -80,6 +81,14 @@ export default function ProjectsPage() {
                 {p.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={p.image} alt={`${p.title} screenshot`} className={`project-shot${p.imageShape === "portrait" ? " project-shot-portrait" : ""}`} loading="lazy" />
+                ) : null}
+                {p.gallery?.length ? (
+                  <div className="project-gallery">
+                    {p.gallery.slice(0, 3).map((src, i) => (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img key={src} src={src} alt={`${p.title} screenshot ${i + 2}`} className="project-gallery-shot" loading="lazy" />
+                    ))}
+                  </div>
                 ) : null}
 
                 {p.highlights?.length ? (
