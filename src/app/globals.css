@@ -222,6 +222,7 @@ code {
   border-radius: 4px;
   background: var(--paper-2);
 }
+.work-shot-portrait { object-position: top; }
 .work-card-head {
   display: flex;
   justify-content: space-between;
@@ -362,6 +363,11 @@ code {
   border: 1px solid var(--rule);
   border-radius: 4px;
   margin-bottom: 24px;
+}
+.project-shot-portrait {
+  max-width: 300px;
+  aspect-ratio: 9 / 16;
+  border-radius: 22px;
 }
 .project-row {
   display: grid;

@@ -66,7 +66,8 @@
     ],
     "problem": "Streaming platforms recommend what's good for their catalog, not your taste. Your real watchlist is scattered across texts, screenshots, and half-remembered conversations, and the nightly \"what should we watch\" still burns twenty minutes.",
     "strategy": "Own the list first: one place you control, independent of any platform, with full movie and TV metadata from TMDB. Then make the app open on a decision, not a library. Tonight's pick is chosen by Claude from what you've saved, what you've already finished, and the time of day, with a reason attached. Free gets the daily pick. Pro gets to steer it: time, company, energy, not tonight, pick again, alerts when a show you track drops a new season.",
-    "theBet": "People frustrated with platform recommendations will keep a personal list if the payoff is a faster decision. This is the first AvidX product built to charge money, and the one proving the whole paid pattern end to end: Stripe, gating, legal, support, the lot."
+    "theBet": "People frustrated with platform recommendations will keep a personal list if the payoff is a faster decision. This is the first AvidX product built to charge money, and the one proving the whole paid pattern end to end: Stripe, gating, legal, support, the lot.",
+    "imageShape": "portrait"
   },
   {
     "id": "planfinity",

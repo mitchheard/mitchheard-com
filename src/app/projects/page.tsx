@@ -9,6 +9,7 @@ type Project = {
   description: string;
   url: string;
   image?: string;
+  imageShape?: "portrait";
   hidden?: boolean;
   stack?: string;
   highlights?: string[];
@@ -78,7 +79,7 @@ export default function ProjectsPage() {
 
                 {p.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={p.image} alt={`${p.title} screenshot`} className="project-shot" loading="lazy" />
+                  <img src={p.image} alt={`${p.title} screenshot`} className={`project-shot${p.imageShape === "portrait" ? " project-shot-portrait" : ""}`} loading="lazy" />
                 ) : null}
 
                 {p.highlights?.length ? (

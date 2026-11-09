@@ -8,6 +8,7 @@ type Project = {
   description: string;
   url: string;
   image?: string;
+  imageShape?: "portrait";
   hidden?: boolean;
   badges?: { stage: string; platform: string }[];
   theBet?: string;
@@ -85,7 +86,7 @@ export default function HomePage() {
               <Link key={p.id} href={`/projects#${p.id}`} className={`work-card${p.image ? " has-shot" : ""}`}>
                 {p.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={p.image} alt={`${p.title} screenshot`} className="work-shot" loading="lazy" />
+                  <img src={p.image} alt={`${p.title} screenshot`} className={`work-shot${p.imageShape === "portrait" ? " work-shot-portrait" : ""}`} loading="lazy" />
                 ) : null}
                 <div className="work-card-head">
                   <span className="work-card-title">{p.title}</span>
