@@ -1,7 +1,7 @@
 /** Career entries for /work. Newest first. Keep each `story` to one paragraph:
  *  what the sides were, where the incentives conflicted, what had to be decided before code. */
 export const careerIntro =
-  "Every product I've worked on sits in the middle of a transaction between people who need each other and want different things. The hardest call in each was which side to build around, because every decision after it inherits the answer.";
+  "Every product I've worked on sits in the middle of a transaction between people who need each other and want different things. You can't pick a favorite. The work is finding the one thing every side needs to go right, and making that the product.";
 
 export type CareerEntry = {
   id: string;
