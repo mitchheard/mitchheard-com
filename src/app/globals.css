@@ -311,6 +311,11 @@ code {
   gap: 6px 24px;
   margin-bottom: 24px;
 }
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
 .project-stack {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 12px;

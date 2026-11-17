@@ -98,6 +98,30 @@
     "theBet": "Zero-friction tools win in hobbyist communities. No signup means no barrier: someone can share a link and a new user is productive in thirty seconds. The space has since filled with heavier tools that do CAD export and layout optimizers. Planfinity's edge is the fastest path from drawer dimensions to print list."
   },
   {
+    "id": "fullshot",
+    "title": "fullshot",
+    "description": "Full-page screenshots for Chrome",
+    "url": "https://mitchheard.github.io/fullshot/",
+    "sourceUrl": "https://github.com/mitchheard/fullshot",
+    "image": "/projects/fullshot.jpg",
+    "badges": [
+      {
+        "stage": "Open source",
+        "platform": "Chrome"
+      }
+    ],
+    "stack": "Chrome MV3 · JavaScript · Chrome DevTools Protocol · pdf-lib",
+    "highlights": [
+      "No host permissions, no network access",
+      "Tiled PDF with an invisible, searchable text layer",
+      "Handles dashboards and chat apps with inner scroll panels",
+      "Loaded unpacked from source, not on the Chrome Web Store"
+    ],
+    "problem": "Full-page screenshot extensions typically ask to read and change every page you visit. And a tall screenshot sent to an AI arrives downsized into something unreadable. Both are bad trades for a tool I use all day.",
+    "strategy": "A Chrome extension with no host permissions and no network access at all. It drives Chrome's own debugging protocol to capture the page, then saves a tiled PDF with an invisible, searchable text layer, an image, or a clipboard-only copy. It copes with dashboards and chat apps where an inner panel scrolls instead of the page.",
+    "theBet": "People who capture pages constantly, especially to hand to an AI, will pick a tool they can read in an afternoon over one that wants access to everything. Shipping as source first keeps it honest while it earns its way toward a store listing."
+  },
+  {
     "id": "orange-signs",
     "title": "Orange Signs",
     "description": "A map of Austin's surviving burnt-orange street sign posts",

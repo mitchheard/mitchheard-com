@@ -9,6 +9,7 @@ type Project = {
   title: string;
   description: string;
   url: string;
+  sourceUrl?: string;
   image?: string;
   imageShape?: "portrait";
   gallery?: string[];
@@ -72,11 +73,18 @@ export default function ProjectsPage() {
                 <p className="project-card-tagline">{p.description}</p>
                 <div className="project-meta">
                   {p.stack ? <span className="project-stack">{p.stack}</span> : <span />}
-                  {p.url && p.url !== "#" ? (
-                    <ProjectOutboundLink href={p.url} projectId={p.id} className="project-visit">
-                      {p.url.replace(/^https?:\/\//, "").replace(/\/$/, "")} ↗
-                    </ProjectOutboundLink>
-                  ) : null}
+                  <span className="project-links">
+                    {p.url && p.url !== "#" ? (
+                      <ProjectOutboundLink href={p.url} projectId={p.id} className="project-visit">
+                        {p.url.replace(/^https?:\/\//, "").replace(/\/$/, "")} ↗
+                      </ProjectOutboundLink>
+                    ) : null}
+                    {p.sourceUrl ? (
+                      <ProjectOutboundLink href={p.sourceUrl} projectId={`${p.id}-source`} className="project-visit">
+                        source ↗
+                      </ProjectOutboundLink>
+                    ) : null}
+                  </span>
                 </div>
 
                 {p.image ? (
