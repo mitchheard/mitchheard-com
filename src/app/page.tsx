@@ -1,6 +1,33 @@
 import Link from "next/link";
-import { site } from "@/data/site";
+import { seo, site } from "@/data/site";
+import { pageMetadata } from "@/lib/seo";
 import projectsData from "@/data/projects.json";
+
+export const metadata = pageMetadata("/", { ...seo.home, absoluteTitle: true });
+
+/* Structured data for search engines: who this site is about. Only facts already on the page. */
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      url: site.url,
+      name: site.name,
+    },
+    {
+      "@type": "Person",
+      "@id": `${site.url}/#person`,
+      name: site.name,
+      url: site.url,
+      image: `${site.url}${site.photo}`,
+      jobTitle: "Chief Product Officer",
+      worksFor: { "@type": "Organization", name: "Newzip", url: "https://newzip.com" },
+      homeLocation: { "@type": "Place", name: site.location },
+      sameAs: [site.linkedin],
+    },
+  ],
+};
 
 type Project = {
   id: string;
@@ -29,6 +56,10 @@ function stageClass(stage: string) {
 export default function HomePage() {
   return (
     <article className="flex flex-col gap-14 md:gap-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       {/* Hero */}
       <header className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-6">
         <div className={`flex flex-col gap-5 ${site.photo ? "md:col-span-8" : "md:col-span-10"}`}>

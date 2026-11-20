@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import linksData from "@/data/links.json";
+
+// Private page: keep it out of search and out of link previews. (Whether it ships in the
+// public export at all is a separate decision; see SITE_REVIEW.md.)
+export const metadata: Metadata = {
+  title: "Dashboard",
+  robots: { index: false, follow: false },
+};
 
 type LinkItem = { label: string; url: string; category: string };
 

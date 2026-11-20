@@ -1,6 +1,10 @@
 import { ProjectOutboundLink } from "@/components/ProjectOutboundLink";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import projectsData from "@/data/projects.json";
+import { seo } from "@/data/site";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata("/projects", seo.projects);
 
 type Badge = { stage: string; platform: string };
 

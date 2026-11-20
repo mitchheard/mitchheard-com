@@ -1,4 +1,8 @@
 import { career, careerIntro } from "@/data/career";
+import { seo } from "@/data/site";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata("/career", seo.career);
 
 export default function CareerPage() {
   return (
