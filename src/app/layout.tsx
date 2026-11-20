@@ -3,6 +3,7 @@ import { Newsreader, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
 import { TopNav } from "@/components/TopNav";
 import { UmamiPageviewRouteListener } from "@/components/UmamiPageviewRouteListener";
+import { seo, shareImage, site } from "@/data/site";
 import {
   UMAMI_INSTANCE_URL,
   UMAMI_WEBSITE_ID,
@@ -29,8 +30,18 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mitch Heard",
-  description: "Mitch Heard. CPO at Newzip, builder of small software bets under AvidX. Austin, TX.",
+  metadataBase: new URL(site.url),
+  // Pages that set a plain string title get "<title> · Mitch Heard".
+  title: { default: site.name, template: `%s · ${site.name}` },
+  description: seo.home.description,
+  // Defaults for pages that don't set their own (dashboard, 404, articles).
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    locale: "en_US",
+    images: [shareImage],
+  },
+  twitter: { card: "summary_large_image", images: [shareImage.url] },
   icons: {
     icon: [
       { url: "/icon-32.png", sizes: "32x32", type: "image/png" },

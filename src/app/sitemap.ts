@@ -1,13 +1,14 @@
 import { MetadataRoute } from "next";
+import { site } from "@/data/site";
 
 export const dynamic = "force-static";
 
+/* No lastModified: a build-time `new Date()` would claim every page changed on every deploy.
+   Intentionally excludes /dashboard; /articles returns once there is a first post. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mitchheard.com";
   return [
-    { url: base, lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
-    { url: `${base}/career`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/projects`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    // Intentionally exclude /dashboard from sitemap; /articles returns once there is a first post
+    { url: site.url },
+    { url: `${site.url}/career` },
+    { url: `${site.url}/projects` },
   ];
 }

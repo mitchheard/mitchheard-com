@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import articlesData from "@/data/articles.json";
@@ -10,6 +11,17 @@ export function generateStaticParams() {
   // With output: 'export', we must return at least one param when the list is empty.
   const params = articles.map((a) => ({ id: a.id }));
   return params.length > 0 ? params : [{ id: "__placeholder" }];
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const article = articles.find((a) => a.id === id);
+  if (!article) return { robots: { index: false, follow: false } };
+  return {
+    title: article.title,
+    description: article.excerpt,
+    alternates: { canonical: `/articles/${article.id}` },
+  };
 }
 
 export default async function ArticlePage({ params }: { params: Promise<{ id: string }> }) {

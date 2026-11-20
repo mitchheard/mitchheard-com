@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 /* /work moved to /career. Static export can't issue a 301, so this page meta-refreshes. */
-export const metadata: Metadata = { title: "Mitch Heard", robots: { index: false, follow: true } };
+export const metadata: Metadata = {
+  title: { absolute: "Mitch Heard" },
+  alternates: { canonical: "/career" },
+  robots: { index: false, follow: true },
+};
 
 export default function Redirect() {
   return (

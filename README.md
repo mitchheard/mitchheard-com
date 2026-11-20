@@ -29,7 +29,7 @@ Output is written to `out/`. Serve that directory with any static host.
 2. Connect this GitHub repo (`mitchheard/mitchheard-com`).
 3. **Build command:** `npm install && npm run build`
 4. **Publish directory:** `out`
-5. (Optional) Set **Environment** → add `NEXT_PUBLIC_SITE_URL` if your sitemap or meta need the production URL (e.g. `https://mitchheard.com`).
+5. The canonical site URL (used by the sitemap, `robots.txt`, canonical links and Open Graph tags) is `site.url` in `src/data/site.ts`. No environment variable is needed.
 6. Deploy. Render will build and serve the static files — no Web Service, no spin-down, free tier eligible.
 
 To switch to a **Web Service** later (e.g. for API routes or SSR), remove `output: 'export'` from `next.config.ts`, create a Web Service on Render, and use **Start command:** `npm start` with the same repo.
