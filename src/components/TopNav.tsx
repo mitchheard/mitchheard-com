@@ -48,11 +48,14 @@ function CloseIcon({ className }: { className?: string }) {
 export function TopNav() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuPathname, setMenuPathname] = useState(pathname);
 
-  // Close menu on route change
-  useEffect(() => {
+  // Close menu on route change. Adjusting state during render (React's
+  // documented pattern) instead of in an effect avoids a cascading re-render.
+  if (pathname !== menuPathname) {
+    setMenuPathname(pathname);
     setMenuOpen(false);
-  }, [pathname]);
+  }
 
   // Lock body scroll when menu is open
   useEffect(() => {
