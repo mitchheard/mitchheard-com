@@ -9,14 +9,15 @@
   --ink: #1c1a17;
   --ink-2: #3f3a33;
   --ink-3: #5c554a;
-  --sand: #8a7d64;
-  --sand-2: #b0a386;
+  /* Text colors below are all at least 4.5:1 on --paper (sand 5.1, sand-2 4.8, gold 4.6, live 5.3). */
+  --sand: #6f6450;
+  --sand-2: #726750;
   --rule: #cdbf9f;
   --rule-2: #e0d5c0;
-  --gold: #9a7a3a;
+  --gold: #85672c;
   --gold-dark: #6f5623;
   --gold-tint: #d9c9a3;
-  --live: #2f7d4f;
+  --live: #2a6f46;
 
   /* Aliases kept for pages that still use the old token names */
   --background: var(--paper);
@@ -68,6 +69,14 @@ a:hover {
   background-size: 100% 1px;
 }
 a.plain, a.plain:hover { border-bottom: none; }
+
+/* One visible keyboard-focus ring for links and buttons (mouse clicks don't trigger it). */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold-dark);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
 
 code {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
@@ -274,7 +283,9 @@ code {
 .retired-row .stage { text-align: right; }
 
 /* Elsewhere */
-.elsewhere { display: flex; flex-wrap: wrap; gap: 12px 32px; font-size: 15px; }
+/* Padding makes each contact link a 44px-tall tap target (24px line + 2 x 10px). */
+.elsewhere { display: flex; flex-wrap: wrap; gap: 0 32px; font-size: 15px; }
+.elsewhere a { display: inline-block; padding: 10px 0; }
 
 /* Work page: detail cards */
 .project-page-title { font-size: 40px; margin-bottom: 8px; }
@@ -285,8 +296,11 @@ code {
   border-top: 1px solid var(--rule);
   padding: 32px 0 40px;
 }
-.project-card-retired { opacity: 0.7; }
-.project-card-retired:hover { opacity: 1; }
+/* Retired reads as quieter through color, not opacity (opacity pushed text under 4.5:1). */
+.project-card-retired .project-card-title,
+.project-card-retired .project-card-title a,
+.project-card-retired .project-card-tagline,
+.project-card-retired .project-highlights li { color: var(--ink-3); }
 .project-card-header {
   display: flex;
   align-items: baseline;

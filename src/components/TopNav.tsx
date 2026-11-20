@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { publicNav } from "@/data/nav";
@@ -49,6 +49,9 @@ export function TopNav() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuPathname, setMenuPathname] = useState(pathname);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   // Close menu on route change. Adjusting state during render (React's
   // documented pattern) instead of in an effect avoids a cascading re-render.
@@ -69,13 +72,47 @@ export function TopNav() {
     };
   }, [menuOpen]);
 
+  // Dialog keyboard behavior: move focus in, trap Tab, close on Escape, and hand focus
+  // back to the hamburger button when the menu closes.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const opener = menuButtonRef.current;
+    closeButtonRef.current?.focus();
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>("a[href], button");
+      if (!focusable || focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      opener?.focus();
+    };
+  }, [menuOpen]);
+
   return (
     <header>
       <nav
         className="site-container flex items-baseline justify-between border-b border-[var(--ink)] pb-3.5 pt-8 md:pt-12"
         aria-label="Main"
       >
-        <Link href="/" className="nav-brand shrink-0 whitespace-nowrap">
+        {/* py + matching -my enlarges the tap area to 44px without moving the layout */}
+        <Link href="/" className="nav-brand shrink-0 whitespace-nowrap py-1.5 -my-1.5">
           {site.name}
         </Link>
 
@@ -115,9 +152,13 @@ export function TopNav() {
 
         {/* Mobile hamburger */}
         <button
-          className="flex items-center justify-center self-center md:hidden"
+          ref={menuButtonRef}
+          className="-my-3 -mr-3 flex h-11 w-11 items-center justify-center self-center md:hidden"
           onClick={() => setMenuOpen(true)}
           aria-label="Open menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          aria-haspopup="dialog"
         >
           <HamburgerIcon className="h-5 w-5 text-[var(--ink-3)] transition-colors hover:text-[var(--ink)]" />
         </button>
@@ -126,6 +167,8 @@ export function TopNav() {
       {/* Mobile full-screen overlay menu */}
       {menuOpen && (
         <div
+          id="mobile-menu"
+          ref={dialogRef}
           className="mobile-menu-overlay fixed inset-0 z-50 flex flex-col items-stretch bg-[var(--paper)] md:hidden"
           role="dialog"
           aria-modal="true"
@@ -133,7 +176,7 @@ export function TopNav() {
         >
           <div className="site-container flex flex-shrink-0 items-baseline justify-between border-b border-[var(--ink)] pb-3.5 pt-8">
             <span className="nav-brand">{site.name}</span>
-            <button onClick={() => setMenuOpen(false)} aria-label="Close menu" className="flex items-center justify-center self-center">
+            <button ref={closeButtonRef} onClick={() => setMenuOpen(false)} aria-label="Close menu" className="-my-3 -mr-3 flex h-11 w-11 items-center justify-center self-center">
               <CloseIcon className="h-5 w-5 text-[var(--ink-3)] transition-colors hover:text-[var(--ink)]" />
             </button>
           </div>
@@ -155,9 +198,10 @@ export function TopNav() {
 
             <div className="my-8 h-px w-12 bg-[var(--rule)]" />
 
-            <ul className="meta space-y-3">
+            <ul className="meta">
               <li>
                 <a
+                  className="inline-block py-3"
                   href={site.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -167,7 +211,7 @@ export function TopNav() {
                 </a>
               </li>
               <li>
-                <a href={`mailto:${site.email}`} onClick={() => trackUmamiEvent("email_clicked")}>
+                <a className="inline-block py-3" href={`mailto:${site.email}`} onClick={() => trackUmamiEvent("email_clicked")}>
                   {site.email}
                 </a>
               </li>

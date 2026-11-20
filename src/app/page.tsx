@@ -35,6 +35,7 @@ type Project = {
   description: string;
   url: string;
   image?: string;
+  imageAlt?: string;
   imageShape?: "portrait";
   hidden?: boolean;
   badges?: { stage: string; platform: string }[];
@@ -94,14 +95,14 @@ export default function HomePage() {
       {site.currentFocus.length > 0 && (
         <section className="section">
           <h2 className="label">Now</h2>
-          <div className="flex flex-col">
+          <ol className="flex flex-col">
             {site.currentFocus.map((item, i) => (
-              <div key={item} className="now-row">
-                <span className="now-index">{String(i + 1).padStart(2, "0")}</span>
+              <li key={item} className="now-row">
+                <span className="now-index" aria-hidden>{String(i + 1).padStart(2, "0")}</span>
                 <span>{item}</span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </section>
       )}
 
@@ -117,7 +118,7 @@ export default function HomePage() {
               <Link key={p.id} href={`/projects#${p.id}`} className={`work-card${p.image ? " has-shot" : ""}`}>
                 {p.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={p.image} alt={`${p.title} screenshot`} className={`work-shot${p.imageShape === "portrait" ? " work-shot-portrait" : ""}`} loading="lazy" />
+                  <img src={p.image} alt={p.imageAlt ?? `${p.title} screenshot`} className={`work-shot${p.imageShape === "portrait" ? " work-shot-portrait" : ""}`} loading="lazy" />
                 ) : null}
                 <div className="work-card-head">
                   <span className="work-card-title">{p.title}</span>
