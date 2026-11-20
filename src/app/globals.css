@@ -39,6 +39,12 @@
 
 html { background: var(--paper); }
 
+/* <picture> wraps responsive images but must not take part in layout: the <img> inside stays
+   the flex/grid item it was (the hero photo stretches to the hero's height this way). */
+picture { display: contents; }
+/* Without this the <source> becomes an empty flex item and picks up the parent's gap. */
+picture > source { display: none; }
+
 body {
   background: var(--paper);
   color: var(--ink);
@@ -391,7 +397,9 @@ code {
 
 /* Filmstrip gallery */
 .gallery { max-width: 680px; margin-bottom: 24px; }
-.gallery-main { margin-bottom: 10px; animation: rise 0.25s ease-out; }
+.gallery-main { margin-bottom: 10px; }
+/* Only after a click: animating the first paint would delay the LCP image. */
+.gallery-swap { animation: rise 0.25s ease-out; }
 .gallery-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
 .gallery-thumb {
   display: block;
@@ -408,7 +416,7 @@ code {
 .gallery-thumb:hover { opacity: 0.85; }
 .gallery-thumb.is-active { opacity: 1; border-color: var(--gold); }
 .gallery-thumb:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-@media (prefers-reduced-motion: reduce) { .gallery-main { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .gallery-swap { animation: none; } }
 .project-row {
   display: grid;
   grid-template-columns: 1fr;

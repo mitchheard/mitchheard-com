@@ -51,7 +51,7 @@ export default function ProjectsPage() {
       </header>
 
       <ul className="project-list">
-        {projects.map((p) => {
+        {projects.map((p, i) => {
           const retired = isRetired(p);
           return (
             <li key={p.id} id={p.id} className="scroll-mt-10">
@@ -99,6 +99,7 @@ export default function ProjectsPage() {
                     images={[p.image, ...(p.gallery ?? [])]}
                     alts={[p.imageAlt ?? "", ...(p.galleryAlts ?? [])]}
                     portrait={p.imageShape === "portrait"}
+                    priority={i === 0}
                   />
                 ) : null}
 
