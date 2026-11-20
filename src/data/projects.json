@@ -5,6 +5,7 @@
     "description": "Offline, ad-free creative play and games for kids",
     "url": "https://lellow.app",
     "image": "/projects/lellow.jpg",
+    "imageAlt": "Lellow's home screen: a smiling yellow mascot says “Hey Owie! You make wonderful things!” above eight colorful activity tiles, including Coloring, Tap & Fill, Word Hunt and Pal Pairs.",
     "badges": [
       {
         "stage": "Live",
@@ -25,6 +26,11 @@
       "/projects/lellow-coloring.jpg",
       "/projects/lellow-pairs.jpg",
       "/projects/lellow-wordhunt.jpg"
+    ],
+    "galleryAlts": [
+      "Lellow's coloring screen: a black-outline cartoon horse ready to color, with Save, Undo and My art buttons down the left side.",
+      "Lellow's Pal Pairs memory game: a grid of face-down yellow cards with a few flipped to show an apple, a fish and stars.",
+      "Lellow's Word Hunt: an eight-by-eight letter grid with MARS and MOON highlighted, and a space-themed word list on the right."
     ]
   },
   {
@@ -33,6 +39,7 @@
     "description": "Sports highlights that never send a kid to YouTube",
     "url": "https://highlight.zone",
     "image": "/projects/highlight-zone.jpg",
+    "imageAlt": "Highlight Zone's home screen on a dark navy background: “Latest Games” with sport filter chips and a featured Atlético vs Barcelona highlight with a “Watch · 3 min” button.",
     "badges": [
       {
         "stage": "Live",
@@ -56,6 +63,7 @@
     "description": "A movie and TV watchlist that picks what you watch tonight",
     "url": "https://gowatchme.app",
     "image": "/projects/watch-me.jpg",
+    "imageAlt": "Watch Me's watchlist on a phone: 139 titles under Want to watch, Watching and Finished tabs, shown as a grid of movie and TV posters.",
     "badges": [
       {
         "stage": "Live",
@@ -80,6 +88,7 @@
     "description": "Gridfinity drawer planner for 3D printing",
     "url": "https://planfinity.app",
     "image": "/projects/planfinity.jpg",
+    "imageAlt": "Planfinity: a drawer grid with colored Gridfinity bin footprints placed on it, drawer dimension inputs on the left and a bin-size picker on the right.",
     "badges": [
       {
         "stage": "Live",
@@ -104,6 +113,7 @@
     "url": "https://mitchheard.github.io/fullshot/",
     "sourceUrl": "https://github.com/mitchheard/fullshot",
     "image": "/projects/fullshot.jpg",
+    "imageAlt": "The fullshot Chrome extension popup with three buttons: PDF (save file), Image (save and copy) and Copy (clipboard).",
     "badges": [
       {
         "stage": "Open source",
@@ -151,6 +161,7 @@
     "description": "Gmail inbox analyzer",
     "url": "#",
     "image": "/projects/mail-zero.jpg",
+    "imageAlt": "Mail Zero's landing page: “Your inbox audit. Your action plan.” above a dashed box for dropping in a Gmail Takeout file.",
     "badges": [
       {
         "stage": "Retired",

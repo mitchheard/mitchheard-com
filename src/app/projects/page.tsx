@@ -15,8 +15,10 @@ type Project = {
   url: string;
   sourceUrl?: string;
   image?: string;
+  imageAlt?: string;
   imageShape?: "portrait";
   gallery?: string[];
+  galleryAlts?: string[];
   hidden?: boolean;
   stack?: string;
   highlights?: string[];
@@ -92,7 +94,12 @@ export default function ProjectsPage() {
                 </div>
 
                 {p.image ? (
-                  <ProjectGallery title={p.title} images={[p.image, ...(p.gallery ?? [])]} portrait={p.imageShape === "portrait"} />
+                  <ProjectGallery
+                    title={p.title}
+                    images={[p.image, ...(p.gallery ?? [])]}
+                    alts={[p.imageAlt ?? "", ...(p.galleryAlts ?? [])]}
+                    portrait={p.imageShape === "portrait"}
+                  />
                 ) : null}
 
                 {p.highlights?.length ? (
