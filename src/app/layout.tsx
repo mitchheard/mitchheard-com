@@ -3,9 +3,11 @@ import { Newsreader, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
 import { Footer } from "@/components/Footer";
 import { TopNav } from "@/components/TopNav";
-import { UmamiPageviewRouteListener } from "@/components/UmamiPageviewRouteListener";
 import { seo, shareImage, site } from "@/data/site";
 import {
+  UMAMI_BEFORE_SEND_NAME,
+  UMAMI_BEFORE_SEND_SOURCE,
+  UMAMI_DOMAINS,
   UMAMI_INSTANCE_URL,
   UMAMI_WEBSITE_ID,
 } from "@/lib/umami-bootstrap";
@@ -61,14 +63,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script dangerouslySetInnerHTML={{ __html: UMAMI_BEFORE_SEND_SOURCE }} />
         <Script
           src={`${UMAMI_INSTANCE_URL}/script.js`}
           data-website-id={UMAMI_WEBSITE_ID}
+          data-domains={UMAMI_DOMAINS}
+          data-before-send={UMAMI_BEFORE_SEND_NAME}
+          data-exclude-hash="true"
           strategy="afterInteractive"
         />
       </head>
       <body className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable} flex min-h-screen flex-col antialiased`}>
-        <UmamiPageviewRouteListener />
         <TopNav />
         <main className="flex-1">
           <div className="site-container pb-14 pt-10 md:pb-16 md:pt-[72px]">

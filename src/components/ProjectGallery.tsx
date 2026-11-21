@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { trackUmamiEvent } from "@/lib/umami-bootstrap";
 import { PORTRAIT_SHOT_WIDTHS, PROJECT_WIDTHS, ResponsiveImage } from "./ResponsiveImage";
 
 type Props = {
+  /** Sent with the gallery_image_selected Umami event. */
+  projectId: string;
   title: string;
   images: string[];
   /** Descriptive alt text, same order as `images`. Falls back to "<title> screenshot". */
@@ -24,7 +27,7 @@ const THUMB_SIZES = "(min-width: 640px) 160px, 80px";
 /* One large shot with a filmstrip under it. Click a thumbnail to make it the large one.
    No autoplay, no arrows: the reader drives. The strip is a group of toggle buttons
    (aria-pressed), not tabs: there is no tabpanel and no arrow-key behavior to promise. */
-export function ProjectGallery({ title, images, alts, portrait, priority }: Props) {
+export function ProjectGallery({ projectId, title, images, alts, portrait, priority }: Props) {
   const [index, setIndex] = useState(0);
   // The swap animation only plays after a click. Animating the first paint would delay LCP.
   const [interacted, setInteracted] = useState(false);
@@ -67,6 +70,7 @@ export function ProjectGallery({ title, images, alts, portrait, priority }: Prop
             aria-label={`Show screenshot ${i + 1} of ${images.length}`}
             className={`gallery-thumb${i === index ? " is-active" : ""}`}
             onClick={() => {
+              if (i !== index) trackUmamiEvent("gallery_image_selected", { project_id: projectId, index: i + 1 });
               setInteracted(true);
               setIndex(i);
             }}
