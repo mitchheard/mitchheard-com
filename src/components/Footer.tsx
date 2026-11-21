@@ -1,3 +1,4 @@
+import { TrackedLink } from "@/components/TrackedLink";
 import { site } from "@/data/site";
 
 /* Site-wide footer: the contact links on every page (they used to live only on Home), plus the
@@ -9,9 +10,9 @@ export function Footer() {
         <p className="label">Elsewhere</p>
         <div>
           <div className="elsewhere">
-            <a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href={site.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href={`mailto:${site.email}`}>{site.email}</a>
+            <TrackedLink href={site.linkedin} event="linkedin_clicked" data={{ location: "footer" }}>LinkedIn</TrackedLink>
+            <TrackedLink href={site.github} event="github_clicked" data={{ location: "footer" }}>GitHub</TrackedLink>
+            <TrackedLink href={`mailto:${site.email}`} event="email_clicked" data={{ location: "footer" }}>{site.email}</TrackedLink>
           </div>
           <p className="footer-line">{site.footerLine}</p>
         </div>
