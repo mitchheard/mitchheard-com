@@ -34,6 +34,16 @@ Output is written to `out/`. Serve that directory with any static host.
 
 To switch to a **Web Service** later (e.g. for API routes or SSR), remove `output: 'export'` from `next.config.ts`, create a Web Service on Render, and use **Start command:** `npm start` with the same repo.
 
+## Analytics (Umami)
+
+Pageviews and click events go to the self-hosted Umami instance configured in `src/lib/umami-bootstrap.ts`, which also lists every event and its properties. Notes:
+
+- Only `www.mitchheard.com` and `mitchheard.com` are tracked (`data-domains`), so local dev, Render preview URLs and test runs never count.
+- `/dashboard` is never tracked (`data-before-send`).
+- Umami sends its own pageviews, including client-side navigations (it hooks `history.pushState`). Don't add a second pageview sender.
+- To keep your own visits out of the stats, run `localStorage.setItem("umami.disabled", "1")` in the browser console on the live site, once per browser.
+- Links that send events use `src/components/TrackedLink.tsx` (server components can't pass an `onClick`).
+
 ## Learn More
 
 - [Next.js Documentation](https://nextjs.org/docs)

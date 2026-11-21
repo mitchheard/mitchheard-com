@@ -1,3 +1,4 @@
+import { TrackedLink } from "@/components/TrackedLink";
 import { career, careerIntro } from "@/data/career";
 import { seo } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
@@ -17,7 +18,7 @@ export default function CareerPage() {
         <section key={c.id} id={c.id} className="section scroll-mt-10">
           <div className="career-gutter">
             <h2 className="career-company">
-              <a href={c.url} target="_blank" rel="noopener noreferrer">{c.company}</a>
+              <TrackedLink href={c.url} event="company_link_clicked" data={{ company: c.id, location: "career" }}>{c.company}</TrackedLink>
             </h2>
             <p className="career-roles">{c.roles}</p>
             <p className="career-years">{c.years}</p>

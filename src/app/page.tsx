@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { seo, site } from "@/data/site";
 import { HEADSHOT_WIDTHS, ResponsiveImage } from "@/components/ResponsiveImage";
+import { TrackedLink } from "@/components/TrackedLink";
 import { pageMetadata } from "@/lib/seo";
 import projectsData from "@/data/projects.json";
 
@@ -71,7 +72,7 @@ export default function HomePage() {
             with <span className="hero-code">commit</span> access.
           </h1>
           <p className="hero-lede rise" style={{ "--i": 1 } as React.CSSProperties}>
-            I&apos;m CPO at <a href="https://newzip.com" target="_blank" rel="noopener noreferrer">Newzip</a>, where we run real estate programs for 40+ financial institutions and 15,000+ agents. Nights and weekends I run AvidX, a studio that ships small software bets.
+            I&apos;m CPO at <TrackedLink href="https://newzip.com" event="company_link_clicked" data={{ company: "newzip", location: "hero" }}>Newzip</TrackedLink>, where we run real estate programs for 40+ financial institutions and 15,000+ agents. Nights and weekends I run AvidX, a studio that ships small software bets.
           </p>
           <p className="hero-sub rise" style={{ "--i": 2 } as React.CSSProperties}>
             I left engineering for product when I noticed the mistakes that hurt most were made before anyone wrote a line of code. I keep ending up in the messiest version of that: one product that has to hold together several kinds of users with conflicting incentives.
@@ -79,11 +80,11 @@ export default function HomePage() {
           <div className="meta hero-links rise flex flex-wrap items-center gap-x-4 gap-y-3" style={{ "--i": 3 } as React.CSSProperties}>
             <span>{site.location}</span>
             <span aria-hidden>·</span>
-            <a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <TrackedLink href={site.linkedin} event="linkedin_clicked" data={{ location: "hero" }}>LinkedIn</TrackedLink>
             <span aria-hidden>·</span>
-            <a href={site.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+            <TrackedLink href={site.github} event="github_clicked" data={{ location: "hero" }}>GitHub</TrackedLink>
             <span aria-hidden>·</span>
-            <a href={`mailto:${site.email}`}>Email</a>
+            <TrackedLink href={`mailto:${site.email}`} event="email_clicked" data={{ location: "hero" }}>Email</TrackedLink>
           </div>
         </div>
         {site.photo ? (
@@ -130,7 +131,14 @@ export default function HomePage() {
         <div className="flex flex-col gap-7">
           <div className="work-grid">
             {live.map((p) => (
-              <Link key={p.id} href={`/projects#${p.id}`} className={`work-card${p.image ? " has-shot" : ""}`}>
+              <TrackedLink
+                key={p.id}
+                internal
+                href={`/projects#${p.id}`}
+                event="home_project_clicked"
+                data={{ project_id: p.id }}
+                className={`work-card${p.image ? " has-shot" : ""}`}
+              >
                 {p.image ? (
                   <ResponsiveImage
                     src={p.image}
@@ -145,14 +153,14 @@ export default function HomePage() {
                   {p.badges?.[0] && <span className={stageClass(p.badges[0].stage)}>{p.badges[0].stage}</span>}
                 </div>
                 <div className="work-card-desc">{p.description}</div>
-              </Link>
+              </TrackedLink>
             ))}
           </div>
           {retired.map((p) => (
             <div key={p.id} className="retired-row">
               <span className="retired-title">{p.title}</span>
               <span className="retired-desc">
-                {p.description}. <Link href={`/projects#${p.id}`}>Why it was retired</Link>
+                {p.description}. <TrackedLink internal href={`/projects#${p.id}`} event="home_project_clicked" data={{ project_id: p.id }}>Why it was retired</TrackedLink>
               </span>
               <span className="stage stage-retired">Retired</span>
             </div>
