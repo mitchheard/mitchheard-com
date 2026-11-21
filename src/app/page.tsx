@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { seo, site } from "@/data/site";
+import { HEADSHOT_WIDTHS, ResponsiveImage } from "@/components/ResponsiveImage";
 import { pageMetadata } from "@/lib/seo";
 import projectsData from "@/data/projects.json";
 
@@ -85,8 +86,17 @@ export default function HomePage() {
         </div>
         {site.photo ? (
           <div className="md:col-span-4 md:flex md:justify-end">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={site.photo} alt={site.name} className="hero-photo rise" style={{ "--i": 1 } as React.CSSProperties} width={240} height={240} />
+            <ResponsiveImage
+              src={site.photo}
+              alt={site.name}
+              widths={HEADSHOT_WIDTHS}
+              sizes="240px"
+              className="hero-photo rise"
+              style={{ "--i": 1 } as React.CSSProperties}
+              width={240}
+              height={240}
+              loading="eager"
+            />
           </div>
         ) : null}
       </header>
@@ -117,8 +127,13 @@ export default function HomePage() {
             {live.map((p) => (
               <Link key={p.id} href={`/projects#${p.id}`} className={`work-card${p.image ? " has-shot" : ""}`}>
                 {p.image ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={p.image} alt={p.imageAlt ?? `${p.title} screenshot`} className={`work-shot${p.imageShape === "portrait" ? " work-shot-portrait" : ""}`} loading="lazy" />
+                  <ResponsiveImage
+                    src={p.image}
+                    alt={p.imageAlt ?? `${p.title} screenshot`}
+                    sizes="(min-width: 640px) 190px, calc(100vw - 40px)"
+                    className={`work-shot${p.imageShape === "portrait" ? " work-shot-portrait" : ""}`}
+                    loading="lazy"
+                  />
                 ) : null}
                 <div className="work-card-head">
                   <span className="work-card-title">{p.title}</span>

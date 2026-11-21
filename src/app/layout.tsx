@@ -63,7 +63,7 @@ export default function RootLayout({
         <Script
           src={`${UMAMI_INSTANCE_URL}/script.js`}
           data-website-id={UMAMI_WEBSITE_ID}
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
       </head>
       <body className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable} antialiased`}>
