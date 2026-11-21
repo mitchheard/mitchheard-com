@@ -25,7 +25,7 @@ const personJsonLd = {
       jobTitle: "Chief Product Officer",
       worksFor: { "@type": "Organization", name: "Newzip", url: "https://newzip.com" },
       homeLocation: { "@type": "Place", name: site.location },
-      sameAs: [site.linkedin],
+      sameAs: [site.linkedin, site.github],
     },
   ],
 };
@@ -71,17 +71,19 @@ export default function HomePage() {
             with <span className="hero-code">commit</span> access.
           </h1>
           <p className="hero-lede rise" style={{ "--i": 1 } as React.CSSProperties}>
-            I left engineering for product when I noticed the mistakes that hurt most were made before anyone wrote a line of code. I keep ending up in the messiest version of that: one product that has to hold together several kinds of users with conflicting incentives.
+            I&apos;m CPO at <a href="https://newzip.com" target="_blank" rel="noopener noreferrer">Newzip</a>, where we run real estate programs for 40+ financial institutions and 15,000+ agents. Nights and weekends I run AvidX, a studio that ships small software bets.
           </p>
           <p className="hero-sub rise" style={{ "--i": 2 } as React.CSSProperties}>
-            By day I run product at <a href="https://newzip.com" target="_blank" rel="noopener noreferrer">Newzip</a>. Nights and weekends I run AvidX, a studio for small software bets. Build fast, validate with real people, keep what works.
+            I left engineering for product when I noticed the mistakes that hurt most were made before anyone wrote a line of code. I keep ending up in the messiest version of that: one product that has to hold together several kinds of users with conflicting incentives.
           </p>
-          <div className="meta rise flex flex-wrap gap-x-4 gap-y-1" style={{ "--i": 3 } as React.CSSProperties}>
+          <div className="meta hero-links rise flex flex-wrap items-center gap-x-4 gap-y-3" style={{ "--i": 3 } as React.CSSProperties}>
             <span>{site.location}</span>
             <span aria-hidden>·</span>
-            <span>CPO, <a href="https://newzip.com" target="_blank" rel="noopener noreferrer">Newzip</a></span>
+            <a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <span aria-hidden>·</span>
-            <span>Founder, AvidX</span>
+            <a href={site.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span aria-hidden>·</span>
+            <a href={`mailto:${site.email}`}>Email</a>
           </div>
         </div>
         {site.photo ? (
@@ -104,7 +106,10 @@ export default function HomePage() {
       {/* Now */}
       {site.currentFocus.length > 0 && (
         <section className="section">
-          <h2 className="label">Now</h2>
+          <div>
+            <h2 className="label">Now</h2>
+            {site.nowUpdated ? <p className="section-note">{site.nowUpdated}</p> : null}
+          </div>
           <ol className="flex flex-col">
             {site.currentFocus.map((item, i) => (
               <li key={item} className="now-row">
@@ -152,15 +157,6 @@ export default function HomePage() {
               <span className="stage stage-retired">Retired</span>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Elsewhere */}
-      <section className="section">
-        <h2 className="label">Elsewhere</h2>
-        <div className="elsewhere">
-          <a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href={`mailto:${site.email}`}>{site.email}</a>
         </div>
       </section>
     </article>

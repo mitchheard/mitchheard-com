@@ -6,16 +6,19 @@ export const site = {
   /** Canonical origin, no trailing slash. mitchheard.com 301s to www, so www is canonical. */
   url: "https://www.mitchheard.com",
   linkedin: "https://www.linkedin.com/in/mitchheard/",
+  github: "https://github.com/mitchheard",
   email: "hello@mitchheard.com",
   /** Optional portrait, square. Drop a file at public/mitch.jpg and set this to "/mitch.jpg". */
   photo: "/mitch.jpg" as string,
   /** "Now" list on the home page. Keeps the site feeling alive. Edit here. */
   currentFocus: [
     "Scaling a B2B2C real estate platform toward Series A",
-    "Building Lellow and Watch Me under AvidX",
-    "Testing how quickly an idea can go from new repo to production",
+    "Getting Lellow and Watch Me ready for the App Store",
+    "Seeing how fast a new repo can reach real users (Highlight Zone took three evenings)",
     "Cargo e-bike dad",
   ],
+  /** Shown under the "Now" label so the list reads as current. Update it when you edit the list. */
+  nowUpdated: "Updated Nov 2026",
 } as const;
 
 /** Link-preview card (LinkedIn, iMessage, Slack, X): 1200x630 at public/og.png. */
