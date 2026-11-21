@@ -9,6 +9,7 @@ export type UmamiTicketEvent =
   | "project_link_clicked"
   | "article_clicked"
   | "linkedin_clicked"
+  | "github_clicked"
   | "email_clicked";
 
 type UmamiTrackFn = {

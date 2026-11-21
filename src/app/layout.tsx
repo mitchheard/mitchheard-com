@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Newsreader, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
+import { Footer } from "@/components/Footer";
 import { TopNav } from "@/components/TopNav";
 import { UmamiPageviewRouteListener } from "@/components/UmamiPageviewRouteListener";
 import { seo, shareImage, site } from "@/data/site";
@@ -66,14 +67,15 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
       </head>
-      <body className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable} antialiased`}>
+      <body className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable} flex min-h-screen flex-col antialiased`}>
         <UmamiPageviewRouteListener />
         <TopNav />
-        <main className="min-h-screen">
-          <div className="site-container pb-16 pt-10 md:pb-24 md:pt-[72px]">
+        <main className="flex-1">
+          <div className="site-container pb-14 pt-10 md:pb-16 md:pt-[72px]">
             {children}
           </div>
         </main>
+        <Footer />
       </body>
     </html>
   );
