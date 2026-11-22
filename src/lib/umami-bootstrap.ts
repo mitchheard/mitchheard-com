@@ -17,7 +17,7 @@ export const UMAMI_BEFORE_SEND_SOURCE = `window.${UMAMI_BEFORE_SEND_NAME}=functi
    linkedin_clicked | github_clicked | email_clicked   { location: nav | menu | hero | footer }
    company_link_clicked                                { company, location: hero | career }
    home_project_clicked                                { project_id }
-   project_link_clicked                                { project_id, link_type: site | source }
+   project_link_clicked                                { project_id, link_type: site | source | app_store }
    gallery_image_selected                              { project_id, index }   (index is 1-based)
    article_clicked                                     { article_id }
    resume_clicked                                      { location }

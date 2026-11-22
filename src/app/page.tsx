@@ -40,6 +40,7 @@ type Project = {
   imageAlt?: string;
   imageShape?: "portrait";
   hidden?: boolean;
+  featured?: boolean;
   badges?: { stage: string; platform: string }[];
   theBet?: string;
 };
@@ -51,6 +52,11 @@ const isRetired = (p: Project) => p.badges?.some((b) => b.stage.toLowerCase() ==
 const projects = (projectsData as Project[]).filter((p) => !p.hidden);
 const live = projects.filter((p) => !isRetired(p));
 const retired = projects.filter(isRetired);
+/* Flagged projects get a large card; the rest become compact rows. */
+const featured = live.filter((p) => p.featured);
+const others = live.filter((p) => !p.featured);
+
+const badgeText = (p: Project) => (p.badges?.[0] ? `${p.badges[0].stage} · ${p.badges[0].platform}` : null);
 
 function stageClass(stage: string) {
   return `stage stage-${stage.toLowerCase().replace(/\s+/g, "-")}`;
@@ -126,11 +132,11 @@ export default function HomePage() {
       <section className="section">
         <div>
           <h2 className="label">Projects</h2>
-          <p className="section-note">Small software bets under AvidX. <Link href="/projects">All of them</Link></p>
+          <p className="section-note">Small software I&rsquo;ve built, most of it under AvidX. <Link href="/projects">All of them</Link></p>
         </div>
         <div className="flex flex-col gap-7">
-          <div className="work-grid">
-            {live.map((p) => (
+          <div className="work-featured">
+            {featured.map((p) => (
               <TrackedLink
                 key={p.id}
                 internal
@@ -143,16 +149,32 @@ export default function HomePage() {
                   <ResponsiveImage
                     src={p.image}
                     alt={p.imageAlt ?? `${p.title} screenshot`}
-                    sizes="(min-width: 640px) 190px, calc(100vw - 40px)"
+                    sizes="(min-width: 640px) 300px, calc(100vw - 40px)"
                     className={`work-shot${p.imageShape === "portrait" ? " work-shot-portrait" : ""}`}
                     loading="lazy"
                   />
                 ) : null}
                 <div className="work-card-head">
                   <span className="work-card-title">{p.title}</span>
-                  {p.badges?.[0] && <span className={stageClass(p.badges[0].stage)}>{p.badges[0].stage}</span>}
+                  {badgeText(p) && <span className={stageClass(p.badges![0].stage)}>{badgeText(p)}</span>}
                 </div>
                 <div className="work-card-desc">{p.description}</div>
+              </TrackedLink>
+            ))}
+          </div>
+          <div className="work-rows">
+            {others.map((p) => (
+              <TrackedLink
+                key={p.id}
+                internal
+                href={`/projects#${p.id}`}
+                event="home_project_clicked"
+                data={{ project_id: p.id }}
+                className="work-row"
+              >
+                <span className="work-row-title">{p.title}</span>
+                <span className="work-row-desc">{p.description}</span>
+                {badgeText(p) && <span className={stageClass(p.badges![0].stage)}>{badgeText(p)}</span>}
               </TrackedLink>
             ))}
           </div>
