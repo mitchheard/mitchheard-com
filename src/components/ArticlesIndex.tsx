@@ -3,42 +3,35 @@
 import Link from "next/link";
 import { trackUmamiEvent } from "@/lib/umami-bootstrap";
 
-export type ArticleSummary = {
+export type ArticleListItem = {
   id: string;
   title: string;
+  /** Already formatted for display, e.g. "Nov 22, 2026". */
+  dateLabel: string;
   date: string;
+  readMinutes: number;
   excerpt: string;
 };
 
-type Props = { articles: ArticleSummary[] };
-
-export function ArticlesIndex({ articles }: Props) {
+export function ArticlesIndex({ articles }: { articles: ArticleListItem[] }) {
   if (articles.length === 0) {
-    return (
-      <p className="text-[var(--muted)] leading-relaxed">
-        Nothing published yet — first post coming soon.
-      </p>
-    );
+    return <p className="project-page-sub">Nothing published yet. First post coming soon.</p>;
   }
 
   return (
-    <ul className="space-y-8">
+    <ul className="article-list">
       {articles.map((a) => (
         <li key={a.id}>
           <Link
             href={`/articles/${a.id}`}
-            className="group block no-underline"
-            onClick={() =>
-              trackUmamiEvent("article_clicked", { article_id: a.id })
-            }
+            className="article-item"
+            onClick={() => trackUmamiEvent("article_clicked", { article_id: a.id })}
           >
-            <h2 className="text-xl font-semibold tracking-tight text-[var(--foreground)] transition-colors group-hover:text-[var(--accent)]">
-              {a.title}
-            </h2>
-            <p className="mt-1 text-sm text-[var(--muted)]">{a.date}</p>
-            <p className="mt-2 text-[var(--foreground)] leading-relaxed">
-              {a.excerpt}
-            </p>
+            <span className="article-meta label">
+              <time dateTime={a.date}>{a.dateLabel}</time> · {a.readMinutes} min read
+            </span>
+            <span className="article-item-title">{a.title}</span>
+            <span className="article-item-excerpt">{a.excerpt}</span>
           </Link>
         </li>
       ))}

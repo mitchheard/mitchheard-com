@@ -7,6 +7,8 @@ import { shareImage, site } from "@/data/site";
 export function pageMetadata(
   path: string,
   page: { title: string; description: string; absoluteTitle?: boolean },
+  /** Set for a blog post: marks the Open Graph type as an article with its publish date. */
+  article?: { publishedTime: string },
 ): Metadata {
   const fullTitle = page.absoluteTitle ? page.title : `${page.title} · ${site.name}`;
   return {
@@ -14,7 +16,7 @@ export function pageMetadata(
     description: page.description,
     alternates: { canonical: path },
     openGraph: {
-      type: "website",
+      ...(article ? { type: "article" as const, publishedTime: article.publishedTime } : { type: "website" as const }),
       siteName: site.name,
       locale: "en_US",
       url: path,

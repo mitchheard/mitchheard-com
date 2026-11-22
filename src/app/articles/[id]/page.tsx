@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import articlesData from "@/data/articles.json";
+import { site } from "@/data/site";
+import { formatDate, getArticles } from "@/lib/articles";
+import { pageMetadata } from "@/lib/seo";
 
-type Article = { id: string; title: string; date: string; excerpt: string };
-
-const articles = articlesData as Article[];
+const articles = getArticles();
 
 export function generateStaticParams() {
   // With output: 'export', we must return at least one param when the list is empty.
@@ -18,9 +18,12 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const article = articles.find((a) => a.id === id);
   if (!article) return { robots: { index: false, follow: false } };
   return {
-    title: article.title,
-    description: article.excerpt,
-    alternates: { canonical: `/articles/${article.id}` },
+    ...pageMetadata(
+      `/articles/${article.id}`,
+      { title: article.title, description: article.excerpt },
+      { publishedTime: article.date },
+    ),
+    alternates: { canonical: `/articles/${article.id}`, types: { "application/rss+xml": "/feed.xml" } },
   };
 }
 
@@ -29,25 +32,32 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
   const article = articles.find((a) => a.id === id);
   if (!article) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title,
+    description: article.excerpt,
+    datePublished: article.date,
+    mainEntityOfPage: `${site.url}/articles/${article.id}`,
+    author: { "@type": "Person", name: site.name, url: site.url },
+  };
+
   return (
     <article>
-      <Link href="/articles" className="inline-block text-sm text-[var(--muted)] hover:underline">
-        ← Articles
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Link href="/articles" className="label plain article-back">
+        ← Writing
       </Link>
 
-      <header className="mt-6 mb-10">
-        <h1 className="text-3xl font-semibold tracking-tight text-[var(--foreground)] md:text-4xl">
-          {article.title}
-        </h1>
-        <p className="mt-2 text-sm text-[var(--muted)]">{article.date}</p>
+      <header className="article-header">
+        <p className="label">
+          <time dateTime={article.date}>{formatDate(article.date)}</time> · {article.readMinutes} min read
+        </p>
+        <h1 className="article-title">{article.title}</h1>
       </header>
 
-      <section className="max-w-2xl space-y-6">
-        <p className="text-[var(--foreground)] leading-relaxed">{article.excerpt}</p>
-        <p className="text-sm text-[var(--muted)]">
-          For full article bodies, add markdown files or use a CMS and render here.
-        </p>
-      </section>
+      {/* Markdown from src/data/articles/, written by the site owner and rendered at build time. */}
+      <div className="prose-post" dangerouslySetInnerHTML={{ __html: article.html }} />
     </article>
   );
 }

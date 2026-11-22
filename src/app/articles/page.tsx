@@ -1,37 +1,41 @@
-import type { Metadata } from "next";
 import { ArticlesIndex } from "@/components/ArticlesIndex";
-import articlesData from "@/data/articles.json";
+import { seo } from "@/data/site";
+import { formatDate, getArticles } from "@/lib/articles";
+import { pageMetadata } from "@/lib/seo";
 
-type Article = {
-  id: string;
-  title: string;
-  date: string;
-  excerpt: string;
-};
-
-const articles = articlesData as Article[];
+const articles = getArticles();
 
 // While there are no posts, the page is hidden from the nav and kept out of search.
-// Once articles.json has entries this becomes a normal indexable page.
-export const metadata: Metadata = {
-  title: "Writing",
-  alternates: { canonical: "/articles" },
+// Once src/data/articles/ has a published post this becomes a normal indexable page.
+export const metadata = {
+  ...pageMetadata("/articles", seo.articles),
+  alternates: { canonical: "/articles", types: { "application/rss+xml": "/feed.xml" } },
   ...(articles.length === 0 ? { robots: { index: false, follow: true } } : {}),
 };
 
 export default function ArticlesPage() {
   return (
     <article>
-      <header className="mb-10">
-        <h1 className="text-3xl font-semibold tracking-tight text-[var(--foreground)] md:text-4xl">
-          Articles
-        </h1>
-        <p className="mt-2 text-[var(--muted)]">
-          Writing about product, systems, and building things.
-        </p>
+      <header className="mb-12 md:mb-16">
+        <h1 className="project-page-title">Writing</h1>
+        <p className="project-page-sub">{seo.articles.description}</p>
+        {articles.length > 0 ? (
+          <p className="meta">
+            <a href="/feed.xml">RSS</a>
+          </p>
+        ) : null}
       </header>
 
-      <ArticlesIndex articles={articles} />
+      <ArticlesIndex
+        articles={articles.map((a) => ({
+          id: a.id,
+          title: a.title,
+          date: a.date,
+          dateLabel: formatDate(a.date),
+          readMinutes: a.readMinutes,
+          excerpt: a.excerpt,
+        }))}
+      />
     </article>
   );
 }
