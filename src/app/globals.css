@@ -172,6 +172,12 @@ code {
   border-radius: 3px;
   display: block;
 }
+/* Phone: a smaller portrait so Now and Projects start sooner. */
+@media (max-width: 767px) { .hero-photo { max-width: 168px; } }
+/* Bigger tap area (about 44px tall) without moving the link or its underline: an invisible
+   box that extends past the text. Used on the hero, footer and mobile-menu contact links. */
+.tap, .hero-links a, .elsewhere a { position: relative; }
+.tap::after, .hero-links a::after, .elsewhere a::after { content: ""; position: absolute; inset: -12px -4px; }
 /* Sections: mono label in the left gutter, content on the right */
 .section {
   border-top: 1px solid var(--rule);
@@ -289,9 +295,14 @@ code {
 .retired-row .stage { text-align: right; }
 
 /* Elsewhere */
-/* Padding makes each contact link a 44px-tall tap target (24px line + 2 x 10px). */
-.elsewhere { display: flex; flex-wrap: wrap; gap: 0 32px; font-size: 15px; }
-.elsewhere a { display: inline-block; padding: 10px 0; }
+.elsewhere { display: flex; flex-wrap: wrap; gap: 14px 32px; font-size: 15px; }
+.footer-line {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--sand);
+  margin-top: 12px;
+}
 
 /* Work page: detail cards */
 .project-page-title { font-size: 40px; margin-bottom: 8px; }
