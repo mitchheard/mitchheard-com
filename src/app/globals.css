@@ -275,6 +275,37 @@ code {
 .stage-live { color: var(--live); }
 .stage-retired { color: var(--sand-2); }
 
+/* Home: two featured cards, then the rest as compact rows */
+.work-featured {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px 24px;
+}
+@media (min-width: 640px) { .work-featured { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.work-featured .work-card-title { font-size: 26px; }
+.work-featured .work-card-desc { font-size: 15px; }
+.work-rows { display: flex; flex-direction: column; }
+.work-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule-2);
+  align-items: baseline;
+  color: inherit;
+  border-bottom: none;
+}
+.work-row:hover { border-bottom: none; }
+.work-row:hover .work-row-title { color: var(--gold-dark); }
+@media (min-width: 640px) { .work-row { grid-template-columns: 160px 1fr auto; } }
+.work-row-title {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: 20px;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+.work-row-desc { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+
 /* Retired row under the cards */
 .retired-row {
   display: grid;
@@ -352,6 +383,7 @@ code {
   font-size: 12px;
   color: var(--sand);
 }
+.project-stack-below { margin: 0 0 24px; max-width: 600px; line-height: 1.6; }
 .project-visit {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-size: 12px;
@@ -426,6 +458,12 @@ code {
 .gallery-thumb img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
 .gallery-thumb:hover { opacity: 0.85; }
 .gallery-thumb.is-active { opacity: 1; border-color: var(--gold); }
+/* Mixed portrait + landscape gallery: fixed-height strip, each thumb keeps its own shape. */
+.gallery-strip-mixed { display: flex; align-items: flex-end; gap: 10px; }
+.gallery-strip-mixed .gallery-thumb { height: 56px; flex: 0 0 auto; }
+.gallery-strip-mixed .gallery-thumb img { height: 100%; width: auto; aspect-ratio: 16 / 10; }
+.gallery-strip-mixed .gallery-thumb-portrait img { aspect-ratio: 9 / 16; }
+@media (min-width: 640px) { .gallery-strip-mixed .gallery-thumb { height: 80px; } }
 .gallery-thumb:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { .gallery-swap { animation: none; } }
 .project-row {

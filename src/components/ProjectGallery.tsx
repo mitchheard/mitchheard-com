@@ -11,7 +11,10 @@ type Props = {
   images: string[];
   /** Descriptive alt text, same order as `images`. Falls back to "<title> screenshot". */
   alts?: string[];
+  /** True if the first image is a phone capture (single-image case). */
   portrait?: boolean;
+  /** Per-image shape, same order as `images`, so a gallery can mix iPhone portrait and iPad landscape shots. Missing = landscape. */
+  shapes?: ("portrait" | "landscape")[];
   /** True for the first image on the page: load it eagerly at high priority (it's the LCP element). */
   priority?: boolean;
 };
@@ -27,11 +30,13 @@ const THUMB_SIZES = "(min-width: 640px) 160px, 80px";
 /* One large shot with a filmstrip under it. Click a thumbnail to make it the large one.
    No autoplay, no arrows: the reader drives. The strip is a group of toggle buttons
    (aria-pressed), not tabs: there is no tabpanel and no arrow-key behavior to promise. */
-export function ProjectGallery({ projectId, title, images, alts, portrait, priority }: Props) {
+export function ProjectGallery({ projectId, title, images, alts, portrait, shapes, priority }: Props) {
   const [index, setIndex] = useState(0);
   // The swap animation only plays after a click. Animating the first paint would delay LCP.
   const [interacted, setInteracted] = useState(false);
   const current = images[index] ?? images[0];
+  const isPortrait = (i: number) => shapes?.[i] === "portrait";
+  const mixed = Boolean(shapes?.some((s) => s === "portrait"));
   const altFor = (i: number) => alts?.[i] || `${title} screenshot ${i + 1} of ${images.length}`;
   const loading = priority ? "eager" : "lazy";
   const fetchPriority = priority ? "high" : undefined;
@@ -56,19 +61,20 @@ export function ProjectGallery({ projectId, title, images, alts, portrait, prior
         key={current}
         src={current}
         alt={altFor(index)}
-        sizes={MAIN_SIZES}
-        className={`project-shot gallery-main${interacted ? " gallery-swap" : ""}`}
+        widths={isPortrait(index) ? PORTRAIT_SHOT_WIDTHS : undefined}
+        sizes={isPortrait(index) ? PORTRAIT_SIZES : MAIN_SIZES}
+        className={`project-shot gallery-main${isPortrait(index) ? " project-shot-portrait" : ""}${interacted ? " gallery-swap" : ""}`}
         loading={index === 0 ? loading : "eager"}
         fetchPriority={index === 0 ? fetchPriority : undefined}
       />
-      <div className="gallery-strip" role="group" aria-label={`${title} screenshots`}>
+      <div className={`gallery-strip${mixed ? " gallery-strip-mixed" : ""}`} role="group" aria-label={`${title} screenshots`}>
         {images.map((src, i) => (
           <button
             key={src}
             type="button"
             aria-pressed={i === index}
             aria-label={`Show screenshot ${i + 1} of ${images.length}`}
-            className={`gallery-thumb${i === index ? " is-active" : ""}`}
+            className={`gallery-thumb${i === index ? " is-active" : ""}${isPortrait(i) ? " gallery-thumb-portrait" : ""}`}
             onClick={() => {
               if (i !== index) trackUmamiEvent("gallery_image_selected", { project_id: projectId, index: i + 1 });
               setInteracted(true);
