@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import linksData from "@/data/links.json";
 
-// Private page: keep it out of search and out of link previews. (Whether it ships in the
-// public export at all is a separate decision; see SITE_REVIEW.md.)
+// Keep it out of search and link previews, and out of Umami (see umami-bootstrap.ts).
+// The page is NOT private: a static export has no way to hide it, and links.json is in the
+// public repo. See CONTENT.md ("Dashboard as Chrome homepage").
 export const metadata: Metadata = {
   title: "Dashboard",
+  alternates: { canonical: "/dashboard" },
   robots: { index: false, follow: false },
 };
 
@@ -22,44 +24,31 @@ export default function DashboardPage() {
 
   return (
     <article>
-      <h1 className="mb-2 text-2xl font-semibold text-[var(--foreground)]">Dashboard</h1>
-      <p className="mb-8 text-[var(--muted)]">Quick links and personal info. Bookmark this page as your browser homepage.</p>
+      <header className="mb-12 md:mb-16">
+        <h1 className="project-page-title">Dashboard</h1>
+        <p className="project-page-sub">
+          My quick links, set as my browser homepage. This page is public, so nothing private lives here.
+        </p>
+      </header>
 
-      <section className="mb-10">
-        <h2 className="mb-4 text-lg font-medium text-[var(--foreground)]">Quick links</h2>
-        <div className="flex flex-wrap gap-4">
-          {Object.entries(byCategory).map(([category, links]) => (
-            <div key={category} className="w-full min-w-0 md:w-auto">
-              <h3 className="mb-2 text-sm font-medium uppercase tracking-wider text-[var(--muted)]">{category}</h3>
-              <ul className="space-y-1">
-                {links.map((link) => (
-                  <li key={link.url}>
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[var(--accent)] hover:underline"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
+      <div className="flex flex-wrap gap-x-16 gap-y-10">
+        {Object.entries(byCategory).map(([category, links]) => (
+          <section key={category} className="min-w-0">
+            <h2 className="label mb-3">{category}</h2>
+            <ul className="space-y-2" style={{ fontSize: 17 }}>
+              {links.map((link) => (
+                <li key={link.url}>
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" className="tap">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
 
-      {notes && (
-        <section>
-          <h2 className="mb-4 text-lg font-medium text-[var(--foreground)]">Notes</h2>
-          <p className="text-[var(--muted)]">{notes}</p>
-        </section>
-      )}
-
-      <p className="mt-10 text-sm text-[var(--muted)]">
-        Edit <code className="rounded bg-[var(--border)] px-1 py-0.5">src/data/links.json</code> to change quick links and notes.
-      </p>
+      {notes && <p className="meta mt-12 max-w-xl">{notes}</p>}
     </article>
   );
 }

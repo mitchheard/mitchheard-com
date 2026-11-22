@@ -5,4 +5,4 @@ export const publicNav = [
 ] as const;
 
 // Writing is hidden until there's a first post: add { href: "/articles", label: "Writing" } back here.
-// Dashboard is intentionally not in public nav. Bookmark /dashboard for personal use.
+// Dashboard is intentionally not in public nav. It is public (unlisted, noindex), so it holds nothing private.

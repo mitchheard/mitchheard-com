@@ -17,4 +17,4 @@ All editable content lives in **`src/data/`**. No database required — edit the
 1. Open Chrome → Settings → On startup (or New tab page).
 2. Set "Open a specific page" to your site’s dashboard URL, e.g. `https://yoursite.com/dashboard`.
 
-The dashboard route is not linked from the public navigation, so visitors won’t see it unless they know the URL.
+**The dashboard is public.** The site is a static export, so `/dashboard` is served to anyone who knows the URL, and `src/data/links.json` is in the public repo. It is kept out of the nav, the sitemap, search (`noindex`) and Umami, but that is not protection. Only put links in `links.json` that you'd be fine showing anyone; never private URLs, tokens or notes. To make it actually private, put `/dashboard` behind Cloudflare Access (a Cloudflare setting, not a code change) or stop exporting it.
