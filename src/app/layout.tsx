@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Newsreader, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { newsreader, plexMono, plexSans } from "./site-fonts";
 import Script from "next/script";
 import { Footer } from "@/components/Footer";
 import { TopNav } from "@/components/TopNav";
@@ -12,25 +12,6 @@ import {
   UMAMI_WEBSITE_ID,
 } from "@/lib/umami-bootstrap";
 import "./globals.css";
-
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  weight: ["400", "500"],
-});
-
-const plexSans = IBM_Plex_Sans({
-  variable: "--font-plex-sans",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
-
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  subsets: ["latin"],
-  weight: ["400"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
