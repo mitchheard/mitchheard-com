@@ -501,3 +501,76 @@ code {
   .rise { opacity: 1; animation: none; }
   .work-card .work-shot, a { transition: none; }
 }
+
+/* Writing: index and posts */
+.article-list { display: flex; flex-direction: column; }
+.article-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 22px 0;
+  border-top: 1px solid var(--rule-2);
+  color: inherit;
+  border-bottom: none;
+  max-width: 640px;
+}
+.article-item:hover { border-bottom: none; }
+.article-item:hover .article-item-title { color: var(--gold-dark); }
+.article-item-title {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+.article-item-excerpt { font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+.article-back { display: inline-block; margin-bottom: 28px; padding: 6px 0; }
+.article-header { margin-bottom: 40px; max-width: 680px; }
+.article-title {
+  font-size: 40px;
+  line-height: 1.08;
+  margin-top: 12px;
+}
+@media (min-width: 768px) { .article-title { font-size: 52px; } }
+
+/* Post body. Markdown output: p, h2-h3, lists, quotes, code, images, rules. */
+.prose-post { max-width: 640px; font-size: 18px; line-height: 1.75; color: var(--ink-2); }
+.prose-post > * + * { margin-top: 1.25em; }
+.prose-post h2 { font-size: 30px; line-height: 1.15; color: var(--ink); margin-top: 2em; }
+.prose-post h3 { font-size: 23px; line-height: 1.2; color: var(--ink); margin-top: 1.8em; }
+.prose-post h2 + *, .prose-post h3 + * { margin-top: 0.7em; }
+.prose-post strong { font-weight: 500; color: var(--ink); }
+.prose-post ul, .prose-post ol { padding-left: 1.4em; }
+.prose-post ul { list-style: disc; }
+.prose-post ol { list-style: decimal; }
+.prose-post li + li { margin-top: 0.4em; }
+.prose-post li::marker { color: var(--sand); }
+.prose-post blockquote {
+  border-left: 2px solid var(--gold-tint);
+  padding-left: 1.1em;
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-style: italic;
+  font-size: 1.15em;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.prose-post code {
+  background: var(--paper-2);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  overflow-wrap: anywhere;
+}
+.prose-post pre {
+  background: var(--paper-2);
+  border: 1px solid var(--rule-2);
+  border-radius: 4px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.prose-post pre code { background: none; padding: 0; font-size: inherit; overflow-wrap: normal; }
+.prose-post img { max-width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 4px; }
+.prose-post hr { border: none; border-top: 1px solid var(--rule); margin: 2.5em 0; }
+.prose-post a { overflow-wrap: anywhere; }

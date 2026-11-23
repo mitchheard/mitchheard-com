@@ -47,4 +47,8 @@ export const seo = {
     description:
       "Small software bets under AvidX: what each one is, the bet behind it, and what happened.",
   },
+  articles: {
+    title: "Writing",
+    description: "Writing about product, systems, and building things.",
+  },
 } as const;
