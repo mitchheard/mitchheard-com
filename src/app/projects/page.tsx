@@ -1,5 +1,5 @@
-import { ProjectOutboundLink } from "@/components/ProjectOutboundLink";
 import { ProjectGallery } from "@/components/ProjectGallery";
+import { TrackedLink } from "@/components/TrackedLink";
 import projectsData from "@/data/projects.json";
 import { seo } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
@@ -59,9 +59,9 @@ export default function ProjectsPage() {
                 <div className="project-card-header">
                   <h2 className="project-card-title">
                     {p.url && p.url !== "#" ? (
-                      <ProjectOutboundLink href={p.url} projectId={p.id}>
+                      <TrackedLink href={p.url} event="project_link_clicked" data={{ project_id: p.id, link_type: "site" }}>
                         {p.title}
-                      </ProjectOutboundLink>
+                      </TrackedLink>
                     ) : (
                       p.title
                     )}
@@ -81,20 +81,21 @@ export default function ProjectsPage() {
                   {p.stack ? <span className="project-stack">{p.stack}</span> : <span />}
                   <span className="project-links">
                     {p.url && p.url !== "#" ? (
-                      <ProjectOutboundLink href={p.url} projectId={p.id} className="project-visit">
+                      <TrackedLink href={p.url} event="project_link_clicked" data={{ project_id: p.id, link_type: "site" }} className="project-visit">
                         {p.url.replace(/^https?:\/\//, "").replace(/\/$/, "")} ↗
-                      </ProjectOutboundLink>
+                      </TrackedLink>
                     ) : null}
                     {p.sourceUrl ? (
-                      <ProjectOutboundLink href={p.sourceUrl} projectId={`${p.id}-source`} className="project-visit">
+                      <TrackedLink href={p.sourceUrl} event="project_link_clicked" data={{ project_id: p.id, link_type: "source" }} className="project-visit">
                         source ↗
-                      </ProjectOutboundLink>
+                      </TrackedLink>
                     ) : null}
                   </span>
                 </div>
 
                 {p.image ? (
                   <ProjectGallery
+                    projectId={p.id}
                     title={p.title}
                     images={[p.image, ...(p.gallery ?? [])]}
                     alts={[p.imageAlt ?? "", ...(p.galleryAlts ?? [])]}

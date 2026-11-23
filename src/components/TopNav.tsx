@@ -143,7 +143,7 @@ export function TopNav() {
               rel="noopener noreferrer"
               className="nav-icon inline-flex"
               aria-label="LinkedIn"
-              onClick={() => trackUmamiEvent("linkedin_clicked")}
+              onClick={() => trackUmamiEvent("linkedin_clicked", { location: "nav" })}
             >
               <LinkedInIcon className={iconClass} />
             </a>
@@ -153,7 +153,7 @@ export function TopNav() {
               rel="noopener noreferrer"
               className="nav-icon inline-flex"
               aria-label="GitHub"
-              onClick={() => trackUmamiEvent("github_clicked")}
+              onClick={() => trackUmamiEvent("github_clicked", { location: "nav" })}
             >
               <GitHubIcon className={iconClass} />
             </a>
@@ -161,7 +161,7 @@ export function TopNav() {
               href={`mailto:${site.email}`}
               className="nav-icon inline-flex"
               aria-label="Email"
-              onClick={() => trackUmamiEvent("email_clicked")}
+              onClick={() => trackUmamiEvent("email_clicked", { location: "nav" })}
             >
               <EmailIcon className={iconClass} />
             </a>
@@ -223,7 +223,7 @@ export function TopNav() {
                   href={site.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackUmamiEvent("linkedin_clicked")}
+                  onClick={() => trackUmamiEvent("linkedin_clicked", { location: "menu" })}
                 >
                   LinkedIn
                 </a>
@@ -234,13 +234,13 @@ export function TopNav() {
                   href={site.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackUmamiEvent("github_clicked")}
+                  onClick={() => trackUmamiEvent("github_clicked", { location: "menu" })}
                 >
                   GitHub
                 </a>
               </li>
               <li>
-                <a className="tap" href={`mailto:${site.email}`} onClick={() => trackUmamiEvent("email_clicked")}>
+                <a className="tap" href={`mailto:${site.email}`} onClick={() => trackUmamiEvent("email_clicked", { location: "menu" })}>
                   {site.email}
                 </a>
               </li>
