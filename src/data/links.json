@@ -5,5 +5,5 @@
     { "label": "Gmail", "url": "https://mail.google.com", "category": "Personal" },
     { "label": "Calendar", "url": "https://calendar.google.com", "category": "Personal" }
   ],
-  "notes": "Use this dashboard as your Chrome homepage. Add or edit links in src/data/links.json."
+  "notes": "Edit src/data/links.json to change these. The page and the file are public: only add links you would be fine showing anyone."
 }
