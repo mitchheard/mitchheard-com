@@ -1,4 +1,4 @@
-/** Career entries for /work. Newest first. Keep each `story` to one paragraph:
+/** Career entries for /career. Newest first. Keep each `story` to one paragraph:
  *  what the sides were, where the incentives conflicted, what had to be decided before code. */
 export const careerIntro =
   "Every product I've worked on sits in the middle of a transaction between people who need each other and want different things. You can't pick a favorite. The work is finding the one thing every side needs to go right, and making that the product.";
@@ -11,6 +11,8 @@ export type CareerEntry = {
   years: string;
   sides: string;
   story: string;
+  /** Optional proof lines, shown under the story. Only add numbers you are allowed to share and can stand behind. */
+  outcomes?: string[];
 };
 
 export const career: CareerEntry[] = [
@@ -42,6 +44,6 @@ export const career: CareerEntry[] = [
     years: "2011 to 2018",
     sides: "Brands · Retailers · Shoppers",
     story:
-      "Ratings and reviews between brands, the retailers who sell their products, and the shoppers deciding what to buy. Brands want reviews on every product, because a product with none is a hard sell and the feedback, good and bad, is how the next version gets better. Retailers want reviews across their whole catalog, their own plus the ones syndicated from brands. Shoppers want to solve whatever sent them shopping. All three need the same thing: reviews people can trust. I spent seven years on the technical side of making that work for new partners, starting in implementation and ending in product. It's also where I learned to manage, with teams in Austin, London, Ukraine, and Costa Rica, and where I learned that the schema of a relationship matters more than the schema of the database.",
+      "Ratings and reviews between brands, the retailers who sell their products, and the shoppers deciding what to buy. Brands want reviews on every product, because a product with none is a hard sell and the feedback, good and bad, is how the next version gets better. Retailers want reviews across their whole catalog, their own plus the ones syndicated from brands. Shoppers want to solve whatever sent them shopping. All three need the same thing: reviews people can trust. I spent seven years on the technical side of making that work for new partners. I came to it as an engineer, started in implementation, and ended in product. It's also where I learned to manage, with teams in Austin, London, Ukraine, and Costa Rica, and where I learned that the schema of a relationship matters more than the schema of the database.",
   },
 ];

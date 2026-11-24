@@ -1,6 +1,6 @@
 import { TrackedLink } from "@/components/TrackedLink";
 import { career, careerIntro } from "@/data/career";
-import { seo } from "@/data/site";
+import { seo, site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata("/career", seo.career);
@@ -26,9 +26,39 @@ export default function CareerPage() {
           <div className="career-body">
             <p className="career-sides">{c.sides}</p>
             <p className="career-story">{c.story}</p>
+            {c.outcomes?.length ? (
+              <ul className="career-outcomes">
+                {c.outcomes.map((o) => (
+                  <li key={o}>{o}</li>
+                ))}
+              </ul>
+            ) : null}
           </div>
         </section>
       ))}
+
+      {/* Next step */}
+      <section className="section">
+        <div>
+          <h2 className="label">Talk</h2>
+        </div>
+        <div className="career-body">
+          <p className="career-story">
+            If you&rsquo;re building something where several kinds of users have to trust each other, I&rsquo;d like to hear about it.
+          </p>
+          <p className="meta career-next">
+            <TrackedLink href={`mailto:${site.email}`} event="email_clicked" data={{ location: "career" }} className="tap">Email</TrackedLink>
+            <span aria-hidden>·</span>
+            <TrackedLink href={site.linkedin} event="linkedin_clicked" data={{ location: "career" }} className="tap">LinkedIn</TrackedLink>
+            {site.resumeUrl ? (
+              <>
+                <span aria-hidden>·</span>
+                <TrackedLink href={site.resumeUrl} event="resume_clicked" data={{ location: "career" }} className="tap">Résumé (PDF)</TrackedLink>
+              </>
+            ) : null}
+          </p>
+        </div>
+      </section>
     </article>
   );
 }
