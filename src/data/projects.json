@@ -2,6 +2,7 @@
   {
     "id": "lellow",
     "title": "Lellow",
+    "featured": true,
     "description": "Offline, ad-free creative play and games for kids",
     "url": "https://lellow.app",
     "image": "/projects/lellow.jpg",
@@ -9,19 +10,19 @@
     "badges": [
       {
         "stage": "Live",
-        "platform": "iPad / Web"
+        "platform": "Web / PWA"
       }
     ],
     "stack": "Vite · React · TypeScript · IndexedDB · Supabase sync · Render",
     "highlights": [
       "Fully offline PWA, tested in airplane mode",
-      "64 coloring pages, freehand and tap-to-fill",
+      "60+ coloring pages, freehand and tap-to-fill",
       "Cloud backup; kids never see a login",
       "No ads, no tracking, no in-app purchases"
     ],
     "problem": "Kids' apps are either ad-funded attention traps or subscription walls, and most of them stop working the moment the wifi does. I wanted something my own kids could open on an iPad in airplane mode: no account, no ads, no upsell, no network.",
-    "strategy": "A progressive web app that installs to the home screen and runs entirely offline. Nine activities: freehand coloring and tap-to-fill across 64 line-art pictures, a saved-art gallery, themed word hunts, a math game built on drag-to-feed, a platformer, a plane-dodger, a memory match. Every drawing is a keepsake, so a parent can sign in once and the whole family's art and scores sync across devices. The cast is named after my kids' own words for things: Lellow, Bumbo, Confetti Monster, Aircoo, Gordy.",
-    "theBet": "Built from zero in one evening as an experiment in how fast an idea can reach a real device, then kept because my kids actually use it. The bet is that a calm, offline, ad-free option with a PBS-grade ethos is rare enough that parents will pass it to other parents. Four families are testing it now.",
+    "strategy": "A progressive web app that installs to the home screen and runs entirely offline. Nine activities: freehand coloring and tap-to-fill across 60+ line-art pictures, a saved-art gallery, themed word hunts, a math game built on drag-to-feed, a platformer, a plane-dodger, a memory match. Every drawing is a keepsake, so a parent can sign in once and the whole family's art and scores sync across devices. The cast is named after my kids' own words for things: Lellow, Bumbo, Confetti Monster, Aircoo, Gordy.",
+    "theBet": "Built from zero in one evening as an experiment in how fast an idea can reach a real device, then kept because my kids actually use it. The bet is that a calm, offline, ad-free option with a PBS-grade ethos is rare enough that parents will pass it to other parents. Tested with a handful of families.",
     "gallery": [
       "/projects/lellow-coloring.jpg",
       "/projects/lellow-pairs.jpg",
@@ -55,11 +56,12 @@
     ],
     "problem": "My son loves sports, his screen time is limited, and he's asleep before games end. So he catches up on highlights on YouTube, which is built to keep you watching: one tap and he's in recommendations, comments, or something that isn't sports at all.",
     "strategy": "Pick your teams and sports and get only game highlights, from official league and club channels, found through the YouTube Data API and matched to real games with ESPN's scoreboard. A cover over the player catches every tap, the app draws its own controls, and when a video ends you get the app's own end screen instead of YouTube's suggestions. Scores stay hidden until you turn them on, which turned out to be what adults wanted too. Favorite a club and it follows you across competitions.",
-    "theBet": "The constraints wrote most of the product. The NFL blocks its footage outside YouTube, so it's greyed out with an honest note. YouTube's policies rule out charging for embedded video, so it's free and costs nothing to run. The player cover bends a rule and I kept it anyway, because it's the one thing that makes the app safe to hand to a kid. Built in three evenings; friends are using it now."
+    "theBet": "The constraints wrote most of the product. The NFL blocks its footage outside YouTube, so it's greyed out with an honest note. YouTube's policies rule out charging for embedded video, so it's free and costs nothing to run. The player cover is the choice that sits closest to YouTube's lines, and the one that makes the app safe to hand to a kid. I kept it on purpose. Built in three evenings; friends and family use it."
   },
   {
     "id": "watch-me",
     "title": "Watch Me",
+    "featured": true,
     "description": "A movie and TV watchlist that picks what you watch tonight",
     "url": "https://gowatchme.app",
     "image": "/projects/watch-me.jpg",
