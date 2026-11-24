@@ -9,7 +9,8 @@ All editable content lives in **`src/data/`**. No database required — edit the
 | Public nav links | `src/data/nav.ts` |
 | **Dashboard** quick links & notes | `src/data/links.json` |
 | Projects list, shown on /projects and the home grid (order = display order; `image` optional 16:10 screenshot, a 1600px-wide JPG in `public/projects/`; after adding or replacing one run `npm run images` to make its WebP variants and commit them (`"imageShape": "portrait"` for a phone capture; `gallery` up to 3 more shots shown under it on /projects); `stack` mono line; `highlights` 3-4 short lines; stage `Retired` moves it under the home cards and relabels its rows; `"hidden": true` keeps an entry in the file but off the site) | `src/data/projects.json` |
-| Career entries on /career (newest first; `story` one paragraph) | `src/data/career.ts` |
+| Career entries on /career (newest first; `story` one paragraph; optional `outcomes` list of proof lines shown under it: only numbers you are allowed to share) | `src/data/career.ts` |
+| Résumé link on /career (put a PDF in `public/`, set `resumeUrl` in `site.ts`; empty hides the link) | `src/data/site.ts` |
 | Articles: one Markdown file per post in `src/data/articles/` (copy `_template.md`; the file name is the URL; `draft: true` keeps it off the site). The Writing page, RSS feed (`/feed.xml`) and sitemap fill in on their own. With no published posts the page is noindex and hidden; when the first post goes live, re-add `{ href: "/articles", label: "Writing" }` in `nav.ts` | `src/data/articles/*.md` |
 
 ## Dashboard as Chrome homepage

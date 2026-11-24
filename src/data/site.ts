@@ -8,6 +8,8 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/mitchheard/",
   github: "https://github.com/mitchheard",
   email: "hello@mitchheard.com",
+  /** Optional résumé. Drop a PDF at public/ (e.g. public/mitch-heard-resume.pdf) and set this to "/mitch-heard-resume.pdf". Empty hides the link. */
+  resumeUrl: "" as string,
   /** Optional portrait, square. Drop a file at public/mitch.jpg and set this to "/mitch.jpg". */
   photo: "/mitch.jpg" as string,
   /** "Now" list on the home page. Keeps the site feeling alive. Edit here. */

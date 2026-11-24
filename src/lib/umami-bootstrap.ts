@@ -20,6 +20,7 @@ export const UMAMI_BEFORE_SEND_SOURCE = `window.${UMAMI_BEFORE_SEND_NAME}=functi
    project_link_clicked                                { project_id, link_type: site | source }
    gallery_image_selected                              { project_id, index }   (index is 1-based)
    article_clicked                                     { article_id }
+   resume_clicked                                      { location }
    Pageviews are sent by Umami itself (it hooks history.pushState), including client-side navigations. */
 export type UmamiTicketEvent =
   | "project_link_clicked"
@@ -29,7 +30,8 @@ export type UmamiTicketEvent =
   | "article_clicked"
   | "linkedin_clicked"
   | "github_clicked"
-  | "email_clicked";
+  | "email_clicked"
+  | "resume_clicked";
 
 type UmamiTrackFn = {
   (): void;
